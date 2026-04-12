@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bebas_Neue, Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Bebas_Neue({
+  variable: "--font-heading",
   subsets: ["latin"],
+  weight: "400",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
@@ -25,7 +26,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${playfair.variable} ${inter.variable} h-full antialiased font-body`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
