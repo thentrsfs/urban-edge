@@ -61,7 +61,7 @@ const FeaturedProducts = ({featuredRef} : {featuredRef: React.RefObject<HTMLDivE
   }, { scope: featuredRef });
 
   return (
-    <section ref={featuredRef} className="min-h-dvh lg:px-30 lg:py-10 px-6 mt-[150vh]">
+    <section ref={featuredRef} className="min-h-dvh lg:px-30 lg:py-10 px-6 mt-[120vh]">
         <h1 className="lg:text-7xl font-bold font-heading tracking-wide featured-title">Featured Collection</h1>
 
         <div className="grid lg:grid-cols-3 grid-cols-2 gap-6 mt-10">

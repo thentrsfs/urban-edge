@@ -57,6 +57,12 @@ useGSAP(() => {
     z: 10,
     ease: "power3.out",
   }, 0.1);
+  tl.from('.product-info', {
+    opacity: 0,
+    y: 80,
+    ease: "power3.out",
+    duration: 1,
+  } , 0.4)
 
 }, [isReady]);
 

@@ -9,23 +9,11 @@ const HeroScene = ({hoodieRef, onModelReady} : {hoodieRef: React.RefObject<Group
   return (
     <Canvas camera={{ position: [1.5, 0, 8], fov: 45 }} className="w-full h-full">
 
-<ambientLight intensity={0.2} />
-
 <directionalLight
-  position={[3, 3, 5]}
-  intensity={1.2}
+  position={[5, 5, 5]}
+  intensity={1.3}
 />
-
-<directionalLight
-  position={[-4, 2, -5]}
-  intensity={1.5}
-/>
-
-<directionalLight
-  position={[0, -3, 2]}
-  intensity={0.3}
-/>
-        <Environment preset="city" />
+        <Environment preset='city' />
 
         <HoodieModel modelRef={hoodieRef} onModelReady={onModelReady} />
     </Canvas>
