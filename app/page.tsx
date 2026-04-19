@@ -101,7 +101,7 @@ useEffect(() => {
         <source src="/videos/video-6.mp4" type="video/mp4" />
       </video>
 
-      <div className="fixed inset-0 bg-black/60 -z-10" />
+      <div className="fixed inset-0 bg-bg/60 -z-10" />
     <div className={`${splashScreen ? "opacity-0" : "opacity-100"} transition-opacity duration-700 flex flex-col text-text-primary relative`}>
       <Nav/>
       <Hero heroRef={heroRef} hoodieRef={hoodieRef} onModelReady={() => setIsReady(true)} />
