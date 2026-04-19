@@ -1,9 +1,11 @@
-'use client';
+'use client'
 import { Canvas } from "@react-three/fiber";
 import {Environment } from "@react-three/drei";
 import HoodieModel from "./HoodieModel";
+import { Group } from "three";
 
-const HeroScene = () => {
+
+const HeroScene = ({hoodieRef, onModelReady} : {hoodieRef: React.RefObject<Group | null> ; onModelReady: () => void}) => {
   return (
     <Canvas camera={{ position: [1.5, 0, 8], fov: 45 }} className="w-full h-full">
 
@@ -25,7 +27,7 @@ const HeroScene = () => {
 />
         <Environment preset="city" />
 
-        <HoodieModel />
+        <HoodieModel modelRef={hoodieRef} onModelReady={onModelReady} />
     </Canvas>
   )
 }
