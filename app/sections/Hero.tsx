@@ -9,7 +9,7 @@ type HeroProps = {
 
 const Hero = ({heroRef, hoodieRef, onModelReady} : HeroProps) => {
   return (
-    <div ref={heroRef} className="min-h-dvh relative lg:px-30 px-6 py-10 lg:py-10 flex flex-col z-10">
+    <section ref={heroRef} className="min-h-dvh relative lg:px-30 px-6 py-10 lg:py-10 flex flex-col z-10">
         <HeroScene hoodieRef={hoodieRef} onModelReady={onModelReady}/>
         <div className=" lg:absolute hero-text lg:top-1/2 lg:left-30 lg:-translate-y-1/2 flex flex-col gap-4 z-11 "><p className="text-sm tracking-widest text-muted">NEW DROP 2026</p>
         <h1 className="lg:text-8xl text-4xl font-bold font-heading tracking-wide">New Collection 2026</h1>
@@ -30,7 +30,7 @@ text-muted/90
 tracking-wider
 uppercase">Premium cotton. Minimal design.</p>
         </div>
-    </div>
+    </section>
   )
 }
 

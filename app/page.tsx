@@ -7,7 +7,7 @@ import { Group } from "three";
 
 import Hero from "./sections/Hero";
 import Nav from "./components/Nav";
-import FeaturedProducts from "./sections/FeaturedProducts";
+import LatestDrops from "./sections/LatestDrops";
 import SplashScreen from "./components/SplashScreen";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -134,7 +134,7 @@ useEffect(() => {
     <div className={`${splashScreen ? "opacity-0" : "opacity-100"} transition-opacity duration-700 flex flex-col text-text-primary relative`}>
       <Nav/>
       <Hero heroRef={heroRef} hoodieRef={hoodieRef} onModelReady={() => setIsReady(true)} />
-      <FeaturedProducts featuredRef={featuredRef}/>
+      <LatestDrops featuredRef={featuredRef}/>
     </div>    
     </div>
   );
