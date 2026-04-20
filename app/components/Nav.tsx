@@ -1,15 +1,14 @@
-import { FiShoppingCart } from "react-icons/fi";
 
 const Nav = () => {
   return (
-    <nav className="absolute top-0 w-full flex justify-between items-center lg:px-30 p-6 lg:py-8 z-10">
+    <nav className="absolute top-0 w-full flex justify-between items-center lg:px-30 p-6 lg:py-8 z-11 text-white">
         <h1 className="lg:text-5xl text-3xl font-bold font-heading">UrbanEdge</h1>
         <button className="lg:hidden text-lg font-medium">Menu</button>
-        <ul className="lg:flex gap-10 text-lg font-medium tracking-wider items-center hidden uppercase">
-            <li><a href="">Shop</a></li>
-            <li><a href="">New Drop</a></li>
-            <li><a href="">Lookbook</a></li>
-            <li><a href=""><FiShoppingCart className="text-2xl" /></a></li>
+        <ul className="lg:flex lg:gap-12 tracking-widest items-center hidden uppercase">
+            <li className="cursor-pointer relative group"><a href="">Shop</a> <span className="absolute left-1/2 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0"/></li>
+            <li className="cursor-pointer relative group"><a href="">Latest Drops</a> <span className="absolute left-1/2 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0"/></li>
+            <li className="cursor-pointer relative group"><a href="">Lookbook</a> <span className="absolute left-1/2 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0"/></li>
+            <li className="cursor-pointer relative group"><a href="">Cart</a> <span className="absolute left-1/2 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0"/></li>
         </ul>
     </nav>
   )
