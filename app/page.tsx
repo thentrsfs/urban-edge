@@ -20,9 +20,9 @@ export default function Home() {
   const [splashScreen, setSplashScreen] = useState(true);
   const [isReady, setIsReady] = useState(false);
 
-
+// Scroll animation
 useGSAP(() => {
-  if (!isReady ) return;
+  if (!isReady || splashScreen ) return;
 
   const hoodie = hoodieRef.current;
   const hero = heroRef.current;
@@ -32,10 +32,10 @@ useGSAP(() => {
     scrollTrigger: {
       trigger: hero,
       start: "top top",
-      end: "+=120%",
-      scrub: 1,
+      end: "+=150%",
+      scrub: 1.5,
       pin: true,
-    },
+    }
   });
 
   tl.to(".hero-text", {
@@ -48,7 +48,7 @@ useGSAP(() => {
     x: 0.5,     
     y: -5.5, 
     z: 2,    
-    ease: "power3.out"
+    ease: "power2.inOut"
   }, 0.1);
 
   tl.to(hoodie.scale, {
@@ -64,39 +64,62 @@ useGSAP(() => {
     duration: 1,
   } , 0.4)
 
-}, [isReady]);
+}, [isReady , splashScreen]);
 
-
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setSplashScreen(false);
-  }, 1500); // 1.5s is perfect
-
-  return () => clearTimeout(timer);
-}, []);
-
-  
+// Splash Screen 
 useGSAP(() => {
-  if(splashScreen) return;
+  if(!splashScreen) return;
 
-  gsap.from(".hero-text", {
-    opacity: 0,
-    y: -60,
+  const tl = gsap.timeline();
+
+  tl.to('.splash-logo', {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
     ease: "power3.out",
-    duration: 1.5
+    delay: 0.2
   })
-} , [splashScreen])
 
-// disable scroll on splash screen
+  tl.to('.splash-logo', {
+    opacity: 0,
+    y: -40,
+    duration: 0.6,
+    ease: "power3.in",
+    onComplete: () => setSplashScreen(false)
+  }, '+=0.4')
+
+  tl.to('.splash', {
+    opacity: 0,
+    duration: 1,
+    ease: "power4.inOut",
+  }, '-=0.4')
+}, [splashScreen])
+
+// Prevent scroll while splash screen is active
 useEffect(() => {
-  if (splashScreen) {
-    document.body.style.overflow = "hidden";
-  } else {
-      document.body.style.overflow = "auto";
-      ScrollTrigger.refresh();
-  }
+  if (!splashScreen) return;
+
+  const preventScroll = (e: Event) => {
+    e.preventDefault();
+  };
+
+  const preventKeys = (e: KeyboardEvent) => {
+    const keys = ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Space"];
+    if (keys.includes(e.code)) {
+      e.preventDefault();
+    }
+  };
+
+  window.addEventListener("wheel", preventScroll, { passive: false });
+  window.addEventListener("touchmove", preventScroll, { passive: false });
+  window.addEventListener("keydown", preventKeys);
+
+  return () => {
+    window.removeEventListener("wheel", preventScroll);
+    window.removeEventListener("touchmove", preventScroll);
+    window.removeEventListener("keydown", preventKeys);
+  };
 }, [splashScreen]);
-  
 
   return (
     <div className="relative">
