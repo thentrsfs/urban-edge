@@ -11,21 +11,21 @@ const products = [
         id: 1,
         name: "REVIVAL CORE",
         description: 'CORE OF THE NIGHT' ,
-        image: "/images/hoodie-2.jpg",
+        image: "/images/latest-drops/hoodie-2.jpg",
         price: 100
     },
     {
         id: 2,
         name: "NEON SHADOW TEE",
         description: 'Neon state of mind' ,
-        image: "/images/shirt.jpg",
+        image: "/images/latest-drops/shirt.jpg",
         price: 100
     },
     {
         id: 3,
         name: "PEACE VOID HOODIE",
         description: 'Chaos in control' ,
-        image: "/images/hoodie-1.jpg",
+        image: "/images/latest-drops/hoodie-1.jpg",
         price: 100
     }
 ]

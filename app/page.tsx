@@ -9,6 +9,8 @@ import Hero from "./sections/Hero";
 import Nav from "./components/Nav";
 import LatestDrops from "./sections/LatestDrops";
 import SplashScreen from "./components/SplashScreen";
+import Lookbook from "./sections/Lookbook";
+import About from "./sections/About";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -121,6 +123,16 @@ useEffect(() => {
   };
 }, [splashScreen]);
 
+// Scroll to top on refresh
+useEffect(() => {
+ const timeout = setTimeout(() => {
+  window.scrollTo({top:0, behavior: 'instant'});
+  ScrollTrigger.refresh();
+ }, 50)
+
+ return () => clearTimeout(timeout);
+} , []);
+
   return (
     <div className="relative">
 {splashScreen && (
@@ -135,6 +147,8 @@ useEffect(() => {
       <Nav/>
       <Hero heroRef={heroRef} hoodieRef={hoodieRef} onModelReady={() => setIsReady(true)} />
       <LatestDrops featuredRef={featuredRef}/>
+      <Lookbook/>
+      <About/>
     </div>    
     </div>
   );
