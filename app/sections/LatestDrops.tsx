@@ -4,31 +4,11 @@ import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/all"
 import Image from "next/image"
 
+import { latestProducts } from "../data/products"
+
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-const products = [
-    {
-        id: 1,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
-        image: "/images/latest-drops/hoodie-2.jpg",
-        price: 100
-    },
-    {
-        id: 2,
-        name: "NEON SHADOW TEE",
-        description: 'Neon state of mind' ,
-        image: "/images/latest-drops/shirt.jpg",
-        price: 100
-    },
-    {
-        id: 3,
-        name: "PEACE VOID HOODIE",
-        description: 'Chaos in control' ,
-        image: "/images/latest-drops/hoodie-1.jpg",
-        price: 100
-    }
-]
+
 
 const LatestDrops = ({featuredRef} : {featuredRef: React.RefObject<HTMLDivElement  | null>}) => {
   
@@ -67,7 +47,7 @@ const LatestDrops = ({featuredRef} : {featuredRef: React.RefObject<HTMLDivElemen
     <section ref={featuredRef} className="min-h-dvh lg:px-30 lg:py-10 px-6 mt-[150vh]">
         <h1 className="lg:text-7xl font-bold font-heading tracking-wide featured-title">Latest Drops</h1>
         <div className="grid lg:grid-cols-3 grid-cols-2 gap-6 mt-10">
-            {products.map((product) => (
+            {latestProducts.map((product) => (
                 <div key={product.id} className="flex flex-col gap-2 featured-card group">
                     <div className="relative h-160 overflow-hidden group-hover:rotate-2 transition-all duration-300">
                     <div className="absolute inset-0 bg-black/15 z-10" />
