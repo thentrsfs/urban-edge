@@ -4,6 +4,7 @@ import { useRef, useLayoutEffect } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { Group } from "three"
+
 import useIsMobile from "../hooks/useIsMobile"
 
 gsap.registerPlugin(useGSAP);

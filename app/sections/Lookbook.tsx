@@ -32,10 +32,18 @@ const Lookbook = () => {
             paused: true
         })
 
+        const title = gsap.to('.lookbook-title', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            paused: true
+        })
+
         ScrollTrigger.create({
             trigger: section,
             start: 'top top+=300',
-            onEnter: () => intro.play(),
+            onEnter: () => {intro.play(); title.play()} ,
         })
 
         const scrollAmount = el.offsetWidth - window.innerWidth;
@@ -58,7 +66,8 @@ const Lookbook = () => {
 
   return (
     <section ref={scrollSection} className="h-screen relative overflow-hidden">
-        <div ref={scrollContainer} className="relative flex gap-8 h-full w-fit lg:px-30">
+        <h2 className="lg:text-7xl text-[40px] font-bold font-heading tracking-wide featured-title absolute lg:left-30 lg:top-6 left-6 top-4 lookbook-title opacity-0 translate-y-10">Lookbook</h2>
+        <div ref={scrollContainer} className="relative flex gap-8 h-full w-fit lg:px-30 px-6">
             {products.map((product) => (
                  <div
         key={product.id}
@@ -72,7 +81,7 @@ const Lookbook = () => {
           alt={product.name}
           width={900}
           height={900}
-          className="lg:w-100 lg:h-140 object-cover"
+          className="lg:w-100 w-80 h-100 lg:h-140 object-cover"
         />
         </div>
         <div className=" text-center">
