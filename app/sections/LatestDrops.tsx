@@ -70,11 +70,11 @@ const tl = gsap.timeline({
   }, { scope: featuredRef });
 
   return (
-    <section ref={featuredRef} className="lg:min-h-dvh lg:px-30 lg:py-10 px-6 lg:mt-[150vh] mt-[160vh] max-sm:mb-30 overflow-x-auto snap-x snap-mandatory no-scrollbar">
+    <section ref={featuredRef} className="lg:min-h-dvh lg:px-30 lg:py-10 px-6 lg:mt-[150vh] mt-[160vh] mb-30 overflow-x-auto snap-x snap-mandatory no-scrollbar">
         <h1 className="lg:text-7xl text-[40px] font-bold font-heading tracking-wide opacity-0 translate-y-20 featured-title max-sm:absolute">Latest Drops</h1>
         <div className="lg:grid lg:grid-cols-3 lg:gap-8 gap-4 flex max-sm:w-max lg:mt-10 mt-30">
             {latestProducts.map((product) => (
-                <div key={product.id} className="flex flex-col gap-2 featured-card opacity-0 translate-y-30 group snap-center">
+                <div key={product.id} className="flex flex-col gap-6 featured-card opacity-0 translate-y-30 group snap-center">
                     <div className="relative lg:h-160 h-100 overflow-hidden group-hover:rotate-2 transition-all duration-300">
                     <div className="absolute inset-0 bg-black/15 z-10" />
                     <div className="absolute inset-0 bg-black/40 z-10 group-hover:opacity-100 opacity-0 transition-all duration-300 flex justify-center items-center"> 
@@ -84,9 +84,9 @@ const tl = gsap.timeline({
                  <Image src={product.image} fill alt="Product" className=" object-cover group-hover:scale-100 scale-105 transition-transform duration-300 group-hover:blur-xs" />
                  </div>
                  </div>
-                 <div>
-                 <p className="tracking-widest text-white lg:text-lg">{product.name}</p>
-                 <p className="tracking-widest uppercase text-xs text-muted/80 opacity-0 group-hover:opacity-100 transition-all duration-300">{product.description}</p>
+                 <div className="text-center">
+                 <p className="tracking-wider text-white lg:text-3xl font-heading">{product.name}</p>
+                 <p className="tracking-widest uppercase text-sm text-muted/80 opacity-0 group-hover:opacity-100 transition-all duration-300">{product.description}</p>
                  </div>
                 </div>
             ))}
