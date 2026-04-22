@@ -42,7 +42,7 @@ const Lookbook = () => {
 
         ScrollTrigger.create({
             trigger: section,
-            start: 'top top+=300',
+            start: 'top top+=500',
             onEnter: () => {intro.play(); title.play()} ,
         })
 
