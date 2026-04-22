@@ -25,40 +25,40 @@ export const latestProducts = [
 export const products = [
     {
         id: 1,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
+        name: "OBSIDIAN FLOW",
+        description: 'Made for the unseen' ,
         image: "/images/clothes/jacket-3.jpg",
         price: 100,
         category: "CORE COLLECTION"
     },
     {
         id: 2,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
+        name: "NEON PULSE",
+        description: 'Alive in the dark' ,
         image: "/images/clothes/t-shirt-1.jpg",
         price: 100,
         category: "CORE COLLECTION"
     },
     {
         id: 3,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
+        name: "VOID RUNNER",
+        description: 'No path, no limits' ,
         image: "/images/clothes/hoodie-2.jpg",
         price: 100,
         category: "CORE COLLECTION"
     },
     {
         id: 4,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
+        name: "ECHO FORM",
+        description: 'Left behind, still heard' ,
         image: "/images/clothes/hoodie-4.jpg",
         price: 100,
         category: "CORE COLLECTION"
     },
     {
         id: 5,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
+        name: "NIGHT VECTOR",
+        description: 'Direction: unknown' ,
         image: "/images/clothes/hoodie-3.jpg",
         price: 100,
         category: "NEON STATE"
@@ -66,56 +66,56 @@ export const products = [
     
     {
         id: 6,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
+        name: "PHANTOM CORE",
+        description: 'You won’t see it coming' ,
         image: "/images/clothes/jacket-2.jpg",
         price: 100,
         category: "NEON STATE"
     },
     {
         id: 7,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
+        name: "STATIC DRIFT",
+        description: 'Lost in motion' ,
         image: "/images/clothes/pants-1.jpg",
         price: 100,
         category: "NEON STATE"
     },
     {
         id: 8,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
+        name: "DUSK SIGNAL",
+        description: 'The shift begins' ,
         image: "/images/clothes/jacket-1.jpg",
         price: 100,
         category: "NEON STATE"
     },
     {
         id: 9,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
+        name: "BLACKOUT MODE",
+        description: 'All lights off' ,
         image: "/images/clothes/hoodie-5.jpg",
         price: 100,
         category: "VOID SERIES"
     },
     {
         id: 10,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
+        name: "NEON FRAGMENT",
+        description: 'Pieces of the future' ,
         image: "/images/clothes/hoodie-1.jpg",
         price: 100,
         category: "VOID SERIES"
     },
     {
         id: 11,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
+        name: "SHADOW CURRENT",
+        description: 'Moves beneath the surface' ,
         image: "/images/clothes/t-shirt-2.jpg",
         price: 100,
         category: "VOID SERIES"
     },
     {
         id: 12,
-        name: "REVIVAL CORE",
-        description: 'CORE OF THE NIGHT' ,
+        name: "VOID ECHO",
+        description: 'Sound without source' ,
         image: "/images/clothes/t-shirt-3.jpg",
         price: 100,
         category: "VOID SERIES"

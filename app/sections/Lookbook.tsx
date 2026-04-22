@@ -34,7 +34,7 @@ const Lookbook = () => {
 
         ScrollTrigger.create({
             trigger: section,
-            start: 'top top+=200',
+            start: 'top top+=300',
             onEnter: () => intro.play(),
         })
 
@@ -77,7 +77,7 @@ const Lookbook = () => {
         </div>
         <div className=" text-center">
             <h2 className="text-3xl font-semibold tracking-wide font-heading">{product.name}</h2>
-            <p className="text-lg text-muted">{product.description}</p>
+            <p className="text-muted uppercase">{product.description}</p>
         </div>
         </div>
       </div>
