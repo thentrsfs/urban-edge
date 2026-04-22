@@ -83,9 +83,9 @@ const Lookbook = () => {
           className=" object-cover"
         />
         </div>
-        <div className=" text-center">
-            <h2 className="text-3xl font-semibold tracking-wide font-heading">{product.name}</h2>
-            <p className="text-muted uppercase">{product.description}</p>
+        <div className="text-center">
+            <h2 className="lg:text-3xl text-2xl font-semibold tracking-wider font-heading">{product.name}</h2>
+            <p className="text-muted uppercase lg:text-base text-sm">{product.description}</p>
         </div>
         </div>
       </div>

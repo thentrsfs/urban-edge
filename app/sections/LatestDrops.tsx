@@ -80,13 +80,13 @@ const tl = gsap.timeline({
                     <div className="absolute inset-0 bg-black/40 z-10 group-hover:opacity-100 opacity-0 transition-all duration-300 flex justify-center items-center"> 
                       <button className="border border-white px-7 py-3 w-fit text-sm tracking-widest lg:mt-6 mt-4 text-white hover:bg-white hover:text-bg font-medium transition cursor-pointer -rotate-2">SHOP NOW</button>
                     </div>
-                    <div className="relative w-full h-full">
+                    <div className="relative lg:w-full lg:h-full w-75 h-100">
                  <Image src={product.image} fill alt="Product" className=" object-cover group-hover:scale-100 scale-105 transition-transform duration-300 group-hover:blur-xs" />
                  </div>
                  </div>
                  <div className="text-center">
-                 <p className="tracking-wider text-white lg:text-3xl font-heading">{product.name}</p>
-                 <p className="tracking-widest uppercase text-sm text-muted/80 opacity-0 group-hover:opacity-100 transition-all duration-300">{product.description}</p>
+                 <p className="tracking-wider text-white lg:text-3xl text-2xl font-semibold font-heading">{product.name}</p>
+                 <p className="tracking-widest uppercase text-sm text-muted/80 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300">{product.description}</p>
                  </div>
                 </div>
             ))}
