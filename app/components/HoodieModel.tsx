@@ -1,6 +1,6 @@
 'use client'
 import { useGLTF } from "@react-three/drei"
-import { useRef, useEffect, useState, useLayoutEffect } from "react"
+import { useRef, useLayoutEffect } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { Group } from "three"
@@ -42,7 +42,7 @@ const HoodieModel = ({modelRef, onModelReady} : {modelRef: React.RefObject<Group
     <group ref={(node) => {
       groupRef.current = node;
       if(modelRef && node) modelRef.current = node;
-    }} position={isMobile ? [0, -6.5, 0] : [3.5, -4, 0]} scale={8}>
+    }} position={isMobile ? [0, -4.6, 0] : [3.5, -4, 0]} scale={isMobile ? 6 : 8}>
     <primitive object={scene}
    style={{filter: "drop-shadow(0px 30px 60px rgba(0,0,0,0.6))"}} />
   </group>

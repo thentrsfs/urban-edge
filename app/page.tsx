@@ -11,6 +11,7 @@ import LatestDrops from "./sections/LatestDrops";
 import SplashScreen from "./components/SplashScreen";
 import Lookbook from "./sections/Lookbook";
 import About from "./sections/About";
+import useIsMobile from "./hooks/useIsMobile";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -21,6 +22,8 @@ export default function Home() {
 
   const [splashScreen, setSplashScreen] = useState(true);
   const [isReady, setIsReady] = useState(false);
+
+  const isMobile = useIsMobile();
 
 // Scroll animation
 useGSAP(() => {
@@ -48,15 +51,15 @@ useGSAP(() => {
 
   tl.to(hoodie.position, {
     x: 0.5,     
-    y: -5.5, 
+    y: isMobile ? -3.4 : -5.5, 
     z: 2,    
     ease: "power2.inOut"
   }, 0.1);
 
   tl.to(hoodie.scale, {
-    x: 10,
-    y: 10,
-    z: 10,
+    x: isMobile ? 7 : 10,
+    y: isMobile ? 7 : 10,
+    z: isMobile ? 7 : 10,
     ease: "power3.out",
   }, 0.1);
   tl.from('.product-info', {
