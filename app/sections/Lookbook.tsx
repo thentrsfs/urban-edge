@@ -74,14 +74,13 @@ const Lookbook = () => {
         className="w-max h-full flex items-center justify-center lookbook-card opacity-0 translate-y-10 relative"
       >
         <div className="flex flex-col gap-6">
-            <div className="relative">
-                <div className="absolute inset-0 bg-bg/20" />
+            <div className="relative lg:w-100 w-80 h-100 lg:h-140">
+                <div className="absolute inset-0 bg-bg/10 z-10" />
         <Image
           src={product.image}
           alt={product.name}
-          width={900}
-          height={900}
-          className="lg:w-100 w-80 h-100 lg:h-140 object-cover"
+          fill
+          className=" object-cover"
         />
         </div>
         <div className=" text-center">
