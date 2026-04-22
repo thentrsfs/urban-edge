@@ -25,6 +25,7 @@ const LatestDrops = ({featuredRef} : {featuredRef: React.RefObject<HTMLDivElemen
         trigger: el,
         start: "top 40%",
         end: "top 10%",
+        scrub: 1.5,
       },
     });
 
