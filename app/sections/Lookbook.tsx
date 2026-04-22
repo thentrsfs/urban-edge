@@ -62,8 +62,11 @@ const Lookbook = () => {
             {products.map((product) => (
                  <div
         key={product.id}
-        className="w-max h-full flex items-center justify-center lookbook-card opacity-0 translate-y-10"
+        className="w-max h-full flex items-center justify-center lookbook-card opacity-0 translate-y-10 relative"
       >
+        <div className="flex flex-col gap-6">
+            <div className="relative">
+                <div className="absolute inset-0 bg-bg/20" />
         <Image
           src={product.image}
           alt={product.name}
@@ -71,6 +74,12 @@ const Lookbook = () => {
           height={900}
           className="lg:w-100 lg:h-140 object-cover"
         />
+        </div>
+        <div className=" text-center">
+            <h2 className="text-3xl font-semibold tracking-wide font-heading">{product.name}</h2>
+            <p className="text-lg text-muted">{product.description}</p>
+        </div>
+        </div>
       </div>
             ))}
         </div>

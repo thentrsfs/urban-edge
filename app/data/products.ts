@@ -27,7 +27,7 @@ export const products = [
         id: 1,
         name: "REVIVAL CORE",
         description: 'CORE OF THE NIGHT' ,
-        image: "/images/clothes/hoodie-1.jpg",
+        image: "/images/clothes/jacket-3.jpg",
         price: 100,
         category: "CORE COLLECTION"
     },
@@ -35,7 +35,7 @@ export const products = [
         id: 2,
         name: "REVIVAL CORE",
         description: 'CORE OF THE NIGHT' ,
-        image: "/images/clothes/jacket-1.jpg",
+        image: "/images/clothes/t-shirt-1.jpg",
         price: 100,
         category: "CORE COLLECTION"
     },
@@ -51,7 +51,7 @@ export const products = [
         id: 4,
         name: "REVIVAL CORE",
         description: 'CORE OF THE NIGHT' ,
-        image: "/images/clothes/pants-1.jpg",
+        image: "/images/clothes/hoodie-4.jpg",
         price: 100,
         category: "CORE COLLECTION"
     },
@@ -76,7 +76,7 @@ export const products = [
         id: 7,
         name: "REVIVAL CORE",
         description: 'CORE OF THE NIGHT' ,
-        image: "/images/clothes/t-shirt-1.jpg",
+        image: "/images/clothes/pants-1.jpg",
         price: 100,
         category: "NEON STATE"
     },
@@ -84,7 +84,7 @@ export const products = [
         id: 8,
         name: "REVIVAL CORE",
         description: 'CORE OF THE NIGHT' ,
-        image: "/images/clothes/hoodie-4.jpg",
+        image: "/images/clothes/jacket-1.jpg",
         price: 100,
         category: "NEON STATE"
     },
@@ -100,7 +100,7 @@ export const products = [
         id: 10,
         name: "REVIVAL CORE",
         description: 'CORE OF THE NIGHT' ,
-        image: "/images/clothes/jacket-3.jpg",
+        image: "/images/clothes/hoodie-1.jpg",
         price: 100,
         category: "VOID SERIES"
     },

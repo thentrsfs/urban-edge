@@ -23,7 +23,7 @@ const LatestDrops = ({featuredRef} : {featuredRef: React.RefObject<HTMLDivElemen
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
-        start: "top 60%",
+        start: "top 40%",
         end: "top 10%",
       },
     });
@@ -46,7 +46,7 @@ const LatestDrops = ({featuredRef} : {featuredRef: React.RefObject<HTMLDivElemen
   return (
     <section ref={featuredRef} className="min-h-dvh lg:px-30 lg:py-10 px-6 mt-[150vh]">
         <h1 className="lg:text-7xl font-bold font-heading tracking-wide featured-title">Latest Drops</h1>
-        <div className="grid lg:grid-cols-3 grid-cols-2 gap-6 mt-10">
+        <div className="grid lg:grid-cols-3 grid-cols-2 gap-8 mt-10">
             {latestProducts.map((product) => (
                 <div key={product.id} className="flex flex-col gap-2 featured-card group">
                     <div className="relative h-160 overflow-hidden group-hover:rotate-2 transition-all duration-300">
