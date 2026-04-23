@@ -23,9 +23,9 @@ const LatestDrops = ({featuredRef} : {featuredRef: React.RefObject<HTMLDivElemen
 const tl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
-        start:"top 40%",
-        end: "top 10%",
-        scrub: 1.5,
+        start:"top top",
+        end: "+=120%",
+        pin: true,
       },
     });
 
@@ -38,8 +38,9 @@ const tl = gsap.timeline({
     tl.to(".featured-card", {
       opacity: 1,
       y: 0,
-      stagger: 0.2,
+      stagger: 0.15,
       ease: "power3.out",
+      duration: 0.8
     }, "-=0.2");
 
     });
@@ -70,7 +71,7 @@ const tl = gsap.timeline({
   }, { scope: featuredRef });
 
   return (
-    <section ref={featuredRef} className="lg:min-h-dvh lg:px-30 lg:py-10 px-6 lg:mt-[150vh] mt-[160vh] mb-30 overflow-x-auto snap-x snap-mandatory no-scrollbar">
+    <section ref={featuredRef} className="lg:min-h-dvh lg:px-30 lg:py-10 px-6 lg:mt-[150vh] mt-[160vh] mb-[100vh] overflow-x-auto snap-x snap-mandatory no-scrollbar z-11">
         <h1 className="lg:text-7xl text-[40px] font-bold font-heading tracking-wide opacity-0 translate-y-20 featured-title max-sm:absolute">Latest Drops</h1>
         <div className="lg:grid lg:grid-cols-3 lg:gap-8 gap-4 flex max-sm:w-max lg:mt-10 mt-30">
             {latestProducts.map((product) => (
@@ -81,7 +82,7 @@ const tl = gsap.timeline({
                       <button className="border border-white px-7 py-3 w-fit text-sm tracking-widest lg:mt-6 mt-4 text-white hover:bg-white hover:text-bg font-medium transition cursor-pointer -rotate-2">SHOP NOW</button>
                     </div>
                     <div className="relative lg:w-full lg:h-full w-75 h-100">
-                 <Image src={product.image} fill alt="Product" className=" object-cover group-hover:scale-100 scale-105 transition-transform duration-300 group-hover:blur-xs" />
+                 <Image src={product.image} fill sizes="(max-width: 768px) 80vw, 25vw" alt="Product" className=" object-cover group-hover:scale-100 scale-105 transition-transform duration-300 group-hover:blur-xs" />
                  </div>
                  </div>
                  <div className="text-center">

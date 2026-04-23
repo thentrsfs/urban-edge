@@ -80,6 +80,7 @@ const Lookbook = () => {
           src={product.image}
           alt={product.name}
           fill
+          sizes="(max-width: 768px) 85vw, 20vw"
           className=" object-cover"
         />
         </div>
