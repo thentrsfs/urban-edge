@@ -11,6 +11,8 @@ import LatestDrops from "./sections/LatestDrops";
 import SplashScreen from "./components/SplashScreen";
 import Lookbook from "./sections/Lookbook";
 import About from "./sections/About";
+import Brand from "./sections/Brand";
+
 import useIsMobile from "./hooks/useIsMobile";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -150,6 +152,7 @@ useEffect(() => {
       <Nav/>
       <Hero heroRef={heroRef} hoodieRef={hoodieRef} onModelReady={() => setIsReady(true)} />
       <LatestDrops featuredRef={featuredRef}/>
+      <Brand/>
       <Lookbook/>
       <About/>
     </div>    
