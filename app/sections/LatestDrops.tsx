@@ -23,9 +23,7 @@ const LatestDrops = ({featuredRef} : {featuredRef: React.RefObject<HTMLDivElemen
 const tl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
-        start:"top top",
-        end: "+=120%",
-        pin: true,
+        start:"top 70%",
       },
     });
 
@@ -41,7 +39,7 @@ const tl = gsap.timeline({
       stagger: 0.15,
       ease: "power3.out",
       duration: 0.8
-    }, "-=0.2");
+    });
 
     });
 
@@ -71,7 +69,7 @@ const tl = gsap.timeline({
   }, { scope: featuredRef });
 
   return (
-    <section ref={featuredRef} className="lg:min-h-dvh lg:px-30 lg:py-10 px-6 lg:mt-[150vh] mt-[160vh] mb-[100vh] overflow-x-auto snap-x snap-mandatory no-scrollbar z-11">
+    <section ref={featuredRef} className="lg:min-h-dvh lg:px-30 lg:py-10 px-6 lg:mt-[150vh] mt-[160vh] lg:mb-30 mb-15 overflow-x-auto snap-x snap-mandatory no-scrollbar z-11">
         <h1 className="lg:text-7xl text-[40px] font-bold font-heading tracking-wide opacity-0 translate-y-20 featured-title max-sm:absolute">Latest Drops</h1>
         <div className="lg:grid lg:grid-cols-3 lg:gap-8 gap-4 flex max-sm:w-max lg:mt-10 mt-30">
             {latestProducts.map((product) => (
