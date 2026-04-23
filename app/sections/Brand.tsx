@@ -25,8 +25,8 @@ const Brand = () => {
         })
 
         tl.fromTo(".brand-title",
-    { opacity: 0, y: 50 },
-    { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }
+    { opacity: 0, filter: 'blur(20px)' ,y: 20 },
+    { opacity: 1, filter: 'blur(0px)' , y: 0, duration: 1.2, ease: "power3.out" }
   );
       
     }, {scope: sectionRef});
