@@ -21,9 +21,10 @@ const CTA = () => {
 			scrollTrigger: {
 				trigger: el,
 				start: 'top top',
-				end: isMobile ? '+=500%' : '+=100%',
+				end: isMobile ? '+=1000%' : '+=100%',
 				scrub: isMobile ? true : 1,
 				pin: true,
+    fastScrollEnd: true
 			},
 		});
 		tl.fromTo(
