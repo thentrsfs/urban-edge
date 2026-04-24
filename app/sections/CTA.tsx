@@ -22,7 +22,7 @@ const CTA = () => {
 				trigger: el,
 				start: 'top top',
 				end: '+=100%',
-				scrub: 1,
+				scrub: isMobile ? false : 1,
 				pin: true,
 			},
 		});
