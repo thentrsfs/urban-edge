@@ -17,12 +17,12 @@ const CTA = () => {
 			scrollTrigger: {
 				trigger: el,
 				start: 'top top',
+				end: '+=100%',
 				scrub: 1,
 				pin: true,
 				pinSpacing: true,
 			},
 		});
-
 		tl.fromTo(
 			'.cta-text',
 			{ opacity: 0, filter: 'blur(20px)', y: 20 },
@@ -30,10 +30,25 @@ const CTA = () => {
 				opacity: 1,
 				filter: 'blur(0px)',
 				y: 0,
-				duration: 1,
+				duration: 1.2,
 				ease: 'power3.out',
 			},
 		);
+
+		tl.to('.cta-text', {
+			opacity: 1,
+			filter: 'blur(0px)',
+			y: 0,
+			duration: 2,
+			ease: 'power3.out',
+		});
+		tl.to('.cta-text', {
+			opacity: 0,
+			filter: 'blur(20px)',
+			y: -20,
+			duration: 2,
+			ease: 'power3.out',
+		});
 	});
 	return (
 		<section
