@@ -20,7 +20,6 @@ const CTA = () => {
 				end: '+=100%',
 				scrub: 1,
 				pin: true,
-				pinSpacing: true,
 			},
 		});
 		tl.fromTo(
@@ -53,7 +52,7 @@ const CTA = () => {
 	return (
 		<section
 			ref={sectionRef}
-			className='h-dvh flex flex-col items-center justify-center'>
+			className='h-dvh flex flex-col items-center justify-center mb-20'>
 			<div className='flex flex-col items-center justify-center cta-text'>
 				<h2 className='lg:text-8xl text-6xl font-bold font-heading tracking-wide mb-6'>
 					READY TO ENTER?

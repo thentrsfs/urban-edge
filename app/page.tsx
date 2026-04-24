@@ -13,6 +13,7 @@ import Lookbook from './sections/Lookbook';
 import CTA from './sections/CTA';
 import Brand from './sections/Brand';
 import Footer from './sections/Footer';
+import Logo from './sections/Logo';
 
 import useIsMobile from './hooks/useIsMobile';
 
@@ -186,6 +187,7 @@ export default function Home() {
 				<Brand />
 				<Lookbook />
 				<CTA />
+				<Logo />
 				<Footer />
 			</div>
 		</div>
