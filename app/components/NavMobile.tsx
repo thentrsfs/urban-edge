@@ -1,17 +1,15 @@
-const Nav = ({
+import { X } from 'lucide-react';
+const NavMobile = ({
+	isNavOpen,
 	setIsNavOpen,
 }: {
+	isNavOpen: boolean;
 	setIsNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
 	return (
-		<nav className='absolute top-0 w-full flex justify-between items-center lg:px-30 p-6 lg:py-8 z-11 text-white'>
-			<h1 className='lg:text-5xl text-3xl font-bold font-heading'>UrbanEdge</h1>
-			<button
-				onClick={() => setIsNavOpen(true)}
-				className='lg:hidden text-lg font-medium'>
-				Menu
-			</button>
-			<ul className='lg:flex lg:gap-15 tracking-widest text-sm items-center hidden uppercase text-white/80'>
+		<nav
+			className={`fixed inset-0 bg-bg text-white flex flex-col justify-center items-center transition-all duration-300 ${isNavOpen ? 'opacity-100 z-99' : 'opacity-0'}`}>
+			<ul className='flex flex-col gap-15 tracking-widest items-center uppercase text-white/80'>
 				<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
 					<a href='#'>Shop</a>{' '}
 					<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full' />
@@ -29,8 +27,12 @@ const Nav = ({
 					<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0' />
 				</li>
 			</ul>
+			<X
+				onClick={() => setIsNavOpen(false)}
+				className='absolute top-8 right-8'
+			/>
 		</nav>
 	);
 };
 
-export default Nav;
+export default NavMobile;
