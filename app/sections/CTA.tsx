@@ -21,8 +21,8 @@ const CTA = () => {
 			scrollTrigger: {
 				trigger: el,
 				start: 'top top',
-				end: '+=100%',
-				scrub: isMobile ? false : 1,
+				end: isMobile ? '+=500%' : '+=100%',
+				scrub: isMobile ? true : 1,
 				pin: true,
 			},
 		});
