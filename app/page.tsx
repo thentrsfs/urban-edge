@@ -10,8 +10,9 @@ import Nav from './components/Nav';
 import LatestDrops from './sections/LatestDrops';
 import SplashScreen from './components/SplashScreen';
 import Lookbook from './sections/Lookbook';
-import About from './sections/About';
+import CTA from './sections/CTA';
 import Brand from './sections/Brand';
+import Footer from './sections/Footer';
 
 import useIsMobile from './hooks/useIsMobile';
 
@@ -184,7 +185,8 @@ export default function Home() {
 				<LatestDrops featuredRef={featuredRef} />
 				<Brand />
 				<Lookbook />
-				<About />
+				<CTA />
+				<Footer />
 			</div>
 		</div>
 	);
