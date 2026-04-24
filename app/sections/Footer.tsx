@@ -1,6 +1,6 @@
 const Footer = () => {
 	return (
-		<footer className='absolute w-full bottom-0 py-6 flex max-sm:flex-col items-center justify-between border-t border-muted/50 text-sm lg:px-30 px-6 text-muted'>
+		<footer className='absolute w-full bottom-0 py-6 flex max-sm:flex-col-reverse gap-6 items-center justify-between border-t border-muted/50 text-sm lg:px-30 px-6 text-muted'>
 			<div className=' text-xs tracking-wider'>© 2026 URBANEDGE</div>
 			<div className='text-center'>
 				Designed & Developed by{' '}

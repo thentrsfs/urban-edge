@@ -23,7 +23,7 @@ const Logo = () => {
 			},
 		});
 		tl.fromTo(
-			'.logo-text',
+			'.logo-title',
 			{ opacity: 0, filter: 'blur(20px)', y: 20 },
 			{
 				opacity: 1,
@@ -34,22 +34,27 @@ const Logo = () => {
 			},
 		);
 
-		tl.to('.logo-text', {
+		tl.to('.logo-title', {
 			scale: 1.05,
 			ease: 'power3.out',
 		});
+		tl.fromTo(
+			'.logo-text',
+			{ opacity: 0 },
+			{ opacity: 1, duration: 1.2, ease: 'power3.out' },
+		);
 	});
 	return (
 		<div
 			ref={sectionRef}
-			className='h-dvh flex flex-col items-center justify-center'>
-			<div className='flex flex-col items-center  logo-text'>
+			className='h-dvh flex flex-col items-center justify-center px-6 text-center'>
+			<div className='flex flex-col items-center'>
 				<h1
 					onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-					className='lg:text-9xl text-6xl font-bold font-heading cursor-pointer select-none'>
+					className='lg:text-9xl text-7xl font-bold font-heading cursor-pointer select-none logo-title'>
 					URBANEDGE
 				</h1>
-				<p className='text-muted/80 text-sm tracking-widest mt-2'>
+				<p className='text-muted/80 text-sm tracking-widest mt-2 logo-text'>
 					BUILT FOR THE UNSEEN
 				</p>
 			</div>

@@ -5,15 +5,15 @@ const Nav = () => {
 			<button className='lg:hidden text-lg font-medium'>Menu</button>
 			<ul className='lg:flex lg:gap-12 tracking-widest items-center hidden uppercase'>
 				<li className='cursor-pointer relative group'>
-					<a href=''>Shop</a>{' '}
+					<a href='#'>Shop</a>{' '}
 					<span className='absolute left-1/2 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0' />
 				</li>
 				<li className='cursor-pointer relative group'>
-					<a href=''>Latest Drops</a>{' '}
+					<a href='#latest-drops'>Latest Drops</a>{' '}
 					<span className='absolute left-1/2 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0' />
 				</li>
 				<li className='cursor-pointer relative group'>
-					<a href=''>Lookbook</a>{' '}
+					<a href='#lookbook'>Lookbook</a>{' '}
 					<span className='absolute left-1/2 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0' />
 				</li>
 				<li className='cursor-pointer relative group'>
