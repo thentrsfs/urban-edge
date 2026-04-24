@@ -1,53 +1,66 @@
-'use client'
-import { useGLTF } from "@react-three/drei"
-import { useRef, useLayoutEffect } from "react"
-import gsap from "gsap"
-import { useGSAP } from "@gsap/react"
-import { Group } from "three"
+'use client';
+import { useGLTF } from '@react-three/drei';
+import { useRef, useLayoutEffect } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { Group } from 'three';
 
-import useIsMobile from "../hooks/useIsMobile"
+import useIsMobile from '../hooks/useIsMobile';
 
 gsap.registerPlugin(useGSAP);
 
-const HoodieModel = ({modelRef, onModelReady} : {modelRef: React.RefObject<Group | null> ; onModelReady: () => void}) => {
+const HoodieModel = ({
+	modelRef,
+	onModelReady,
+}: {
+	modelRef: React.RefObject<Group | null>;
+	onModelReady: () => void;
+}) => {
+	const isMobile = useIsMobile();
+	const groupRef = useRef<Group>(null);
 
-    const isMobile = useIsMobile();
-    const groupRef = useRef<Group>(null);
+	const { scene } = useGLTF('/models/hoodie.glb');
 
-    const {scene} = useGLTF('/models/hoodie.glb')
+	useGSAP(() => {
+		const el = groupRef.current;
+		if (!el) return;
+		const tl = gsap.timeline();
 
-    useGSAP(() => {
-        const el = groupRef.current;
-        if(!el) return;
-        const tl = gsap.timeline();
+		tl.to(
+			el.rotation,
+			{
+				y: Math.PI * 2,
+				duration: 15,
+				ease: 'none',
+				repeat: -1,
+			},
+			1,
+		);
+	});
 
-        tl.to(el.rotation, {
-      y: Math.PI * 2,
-      duration: 15,
-      ease: "none",
-      repeat: -1,
-    }, 1 )
+	useLayoutEffect(() => {
+		if (!groupRef.current) return;
 
-    } )
+		requestAnimationFrame(() => {
+			if (modelRef) modelRef.current = groupRef.current;
+			if (onModelReady) onModelReady();
+		});
+	});
 
-   useLayoutEffect(() => {
-    if(!groupRef.current) return;
+	return (
+		<group
+			ref={(node) => {
+				groupRef.current = node;
+				if (modelRef && node) modelRef.current = node;
+			}}
+			position={isMobile ? [0, -4.6, 0] : [3.5, -4, 0]}
+			scale={isMobile ? 6 : 8}>
+			<primitive
+				object={scene}
+				style={{ filter: 'drop-shadow(0px 30px 60px rgba(0,0,0,0.6))' }}
+			/>
+		</group>
+	);
+};
 
-    requestAnimationFrame(() => {
-      if(modelRef) modelRef.current = groupRef.current;
-      if(onModelReady) onModelReady();
-    })
-   }, )
-
-  return (
-    <group ref={(node) => {
-      groupRef.current = node;
-      if(modelRef && node) modelRef.current = node;
-    }} position={isMobile ? [0, -4.6, 0] : [3.5, -4, 0]} scale={isMobile ? 6 : 8}>
-    <primitive object={scene}
-   style={{filter: "drop-shadow(0px 30px 60px rgba(0,0,0,0.6))"}} />
-  </group>
-  )
-}
-
-export default HoodieModel
+export default HoodieModel;
