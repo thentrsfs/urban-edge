@@ -5,9 +5,13 @@ import { ScrollTrigger } from 'gsap/all';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 
+import useIsMobile from '../hooks/useIsMobile';
+
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 const CTA = () => {
 	const sectionRef = useRef<HTMLDivElement>(null);
+
+ const isMobile = useIsMobile();
 
 	useGSAP(() => {
 		const el = sectionRef.current;
