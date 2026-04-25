@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
 
-import HeroScene from '../components/HeroScene';
+import HeroScene from '../scene/HeroScene';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 

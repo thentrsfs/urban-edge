@@ -5,13 +5,13 @@ import { ScrollTrigger } from 'gsap/all';
 import { useGSAP } from '@gsap/react';
 import { Group } from 'three';
 
-import Hero from './sections/Hero';
-import LatestDrops from './sections/LatestDrops';
-import SplashScreen from './components/SplashScreen';
-import Lookbook from './sections/Lookbook';
-import CTA from './sections/CTA';
-import Brand from './sections/Brand';
-import Logo from './sections/Logo';
+import Hero from './components/sections/Hero';
+import LatestDrops from './components/sections/LatestDrops';
+import SplashScreen from './components/ui/SplashScreen';
+import Lookbook from './components/sections/Lookbook';
+import CTA from './components/sections/CTA';
+import Brand from './components/sections/Brand';
+import Logo from './components/sections/Logo';
 
 import useIsMobile from './hooks/useIsMobile';
 import { useUI } from './context/UIProvider';

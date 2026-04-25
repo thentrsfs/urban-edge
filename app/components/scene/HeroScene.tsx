@@ -1,7 +1,7 @@
 'use client';
 import { Canvas } from '@react-three/fiber';
 import { Environment } from '@react-three/drei';
-import HoodieModel from './HoodieModel';
+import HoodieModel from '@/app/components/scene/HoodieModel';
 import { Group } from 'three';
 
 const HeroScene = ({

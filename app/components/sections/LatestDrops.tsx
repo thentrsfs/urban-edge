@@ -4,7 +4,7 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
 import Image from 'next/image';
 
-import { latestProducts } from '../data/products';
+import { latestProducts } from '../../data/products';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 

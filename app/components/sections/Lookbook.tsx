@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/all';
 import { useRef } from 'react';
 import Image from 'next/image';
 
-import { products } from '../data/products';
+import { products } from '../../data/products';
 import { MoveRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);

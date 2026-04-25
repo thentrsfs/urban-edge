@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import { Bebas_Neue, Inter } from 'next/font/google';
 import './globals.css';
 
-import Nav from './components/Nav';
-import NavMobile from './components/NavMobile';
-import Footer from './sections/Footer';
-import ScrollFix from './components/ScrollFix';
-import ScrollToTop from './components/ScrollToTop';
+import Nav from './components/ui/Nav';
+import NavMobile from './components/ui/NavMobile';
+import Footer from './components/sections/Footer';
+import ScrollFix from './components/system/ScrollFix';
+import ScrollToTop from './components/system/ScrollToTop';
 
 import { UIProvider } from './context/UIProvider';
 
