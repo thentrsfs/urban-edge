@@ -64,7 +64,7 @@ const Brand = () => {
 			scrollTrigger: {
 				trigger: el,
 				start: 'top 70%',
-				end: 'top 10%',
+				end: '+=100%',
 				scrub: 1,
 			},
 		});
