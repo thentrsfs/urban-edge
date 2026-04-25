@@ -67,7 +67,7 @@ const CTA = () => {
 				scrollTrigger: {
 					trigger: el,
 					start: 'top top',
-					end: '+=500%',
+					end: '+=300%',
 					scrub: true,
 					pin: true,
 				},
@@ -109,7 +109,7 @@ const CTA = () => {
 	return (
 		<section
 			ref={sectionRef}
-			className='h-dvh flex flex-col items-center justify-center lg:mb-80 mb-[260vh] px-6 text-center relative z-15'>
+			className='h-dvh flex flex-col items-center justify-center lg:mb-80 mb-[160vh] px-6 text-center relative z-15'>
 			<div className='absolute top-10 left-1/2 -translate-x-1/2 text-lg font-heading tracking-widest text-muted items-center flex flex-col enter-hint'>
 				<span>ENTER THE CORE</span> <MoveDown size={20} />
 			</div>
