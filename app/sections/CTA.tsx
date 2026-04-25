@@ -5,59 +5,98 @@ import { ScrollTrigger } from 'gsap/all';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 
-import useIsMobile from '../hooks/useIsMobile';
-
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 const CTA = () => {
 	const sectionRef = useRef<HTMLDivElement>(null);
-
-	const isMobile = useIsMobile();
 
 	useGSAP(() => {
 		const el = sectionRef.current;
 		if (!el) return;
 
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: el,
-				start: 'top top',
-				end: isMobile ? '+=1000%' : '+=100%',
-				scrub: isMobile ? true : 1,
-				pin: true,
-				fastScrollEnd: true,
-			},
-		});
-		tl.fromTo(
-			'.cta-text',
-			{ opacity: 0, filter: 'blur(20px)', y: 20 },
-			{
+		const mm = gsap.matchMedia();
+
+		mm.add('(min-width: 768px)', () => {
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: el,
+					start: 'top top',
+					end: '+=100%',
+					scrub: 1,
+					pin: true,
+				},
+			});
+
+			tl.fromTo(
+				'.cta-text',
+				{ opacity: 0, filter: 'blur(20px)', y: 20 },
+				{
+					opacity: 1,
+					filter: 'blur(0px)',
+					y: 0,
+					duration: 1.2,
+					ease: 'power3.out',
+				},
+			);
+
+			tl.to('.cta-text', {
 				opacity: 1,
 				filter: 'blur(0px)',
 				y: 0,
-				duration: 1.2,
+				duration: 2,
 				ease: 'power3.out',
-			},
-		);
-
-		tl.to('.cta-text', {
-			opacity: 1,
-			filter: 'blur(0px)',
-			y: 0,
-			duration: 2,
-			ease: 'power3.out',
+			});
+			tl.to('.cta-text', {
+				opacity: 0,
+				filter: 'blur(20px)',
+				y: -20,
+				duration: 2,
+				ease: 'power3.out',
+			});
 		});
-		tl.to('.cta-text', {
-			opacity: 0,
-			filter: 'blur(20px)',
-			y: -20,
-			duration: 2,
-			ease: 'power3.out',
+
+		mm.add('(max-width: 767px)', () => {
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: el,
+					start: 'top top',
+					end: '+=500%',
+					scrub: true,
+					pin: true,
+				},
+			});
+
+			tl.fromTo(
+				'.cta-text',
+				{ opacity: 0, filter: 'blur(20px)', y: 20 },
+				{
+					opacity: 1,
+					filter: 'blur(0px)',
+					y: 0,
+					duration: 1.2,
+					ease: 'power3.out',
+				},
+			);
+
+			tl.to('.cta-text', {
+				opacity: 1,
+				filter: 'blur(0px)',
+				y: 0,
+				duration: 2,
+				ease: 'power3.out',
+			});
+			tl.to('.cta-text', {
+				opacity: 0,
+				filter: 'blur(20px)',
+				y: -20,
+				duration: 2,
+				ease: 'power3.out',
+			});
 		});
 	});
 	return (
 		<section
 			ref={sectionRef}
-			className='h-dvh flex flex-col items-center justify-center mb-20 px-6 text-center'>
+			className='h-dvh flex flex-col items-center justify-center lg:mb-20 mb-[260vh] px-6 text-center'>
 			<div className='flex flex-col items-center justify-center cta-text'>
 				<h2 className='lg:text-8xl text-6xl font-bold font-heading tracking-wide mb-6'>
 					READY TO ENTER?
