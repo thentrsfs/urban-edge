@@ -6,15 +6,12 @@ import { useGSAP } from '@gsap/react';
 import { Group } from 'three';
 
 import Hero from './sections/Hero';
-import Nav from './components/Nav';
 import LatestDrops from './sections/LatestDrops';
 import SplashScreen from './components/SplashScreen';
 import Lookbook from './sections/Lookbook';
 import CTA from './sections/CTA';
 import Brand from './sections/Brand';
-import Footer from './sections/Footer';
 import Logo from './sections/Logo';
-import NavMobile from './components/NavMobile';
 
 import useIsMobile from './hooks/useIsMobile';
 
@@ -27,7 +24,6 @@ export default function Home() {
 
 	const [splashScreen, setSplashScreen] = useState(true);
 	const [isReady, setIsReady] = useState(false);
-	const [isNavOpen, setIsNavOpen] = useState(false);
 
 	const isMobile = useIsMobile();
 
@@ -181,15 +177,9 @@ export default function Home() {
 					type='video/mp4'
 				/>
 			</video>
-			<NavMobile
-				isNavOpen={isNavOpen}
-				setIsNavOpen={setIsNavOpen}
-			/>
 			<div className='fixed inset-0 bg-bg/60 -z-10' />
 			<div
 				className={`${splashScreen ? 'opacity-0' : 'opacity-100'} transition-opacity duration-700 flex flex-col text-text-primary relative`}>
-				<Nav setIsNavOpen={setIsNavOpen} />
-
 				<Hero
 					heroRef={heroRef}
 					hoodieRef={hoodieRef}
@@ -200,7 +190,6 @@ export default function Home() {
 				<Lookbook />
 				<CTA />
 				<Logo />
-				<Footer />
 			</div>
 		</div>
 	);

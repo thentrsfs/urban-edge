@@ -2,6 +2,11 @@ import type { Metadata } from 'next';
 import { Bebas_Neue, Inter } from 'next/font/google';
 import './globals.css';
 
+import Nav from './components/Nav';
+import NavMobile from './components/NavMobile';
+import Footer from './sections/Footer';
+import { UIProvider } from './context/UIProvider';
+
 const playfair = Bebas_Neue({
 	variable: '--font-heading',
 	subsets: ['latin'],
@@ -26,8 +31,15 @@ export default function RootLayout({
 	return (
 		<html
 			lang='en'
-			className={`${playfair.variable} ${inter.variable} h-full antialiased font-body`}>
-			<body className='min-h-full flex flex-col'>{children}</body>
+			className={`${playfair.variable} ${inter.variable} h-full antialiased font-body`}
+			suppressHydrationWarning>
+			<body className='min-h-full flex flex-col relative'>
+				<UIProvider>
+					<Nav />
+					<main>{children}</main>
+					<Footer />
+				</UIProvider>
+			</body>
 		</html>
 	);
 }

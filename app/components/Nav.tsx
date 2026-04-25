@@ -1,8 +1,10 @@
-const Nav = ({
-	setIsNavOpen,
-}: {
-	setIsNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+'use client';
+
+import { useUI } from '../context/UIProvider';
+
+const Nav = () => {
+	const { setIsNavOpen } = useUI();
+
 	return (
 		<nav className='absolute top-0 w-full flex justify-between items-center lg:px-30 p-6 lg:py-8 z-11 text-white'>
 			<h1 className='lg:text-5xl text-3xl font-bold font-heading'>UrbanEdge</h1>

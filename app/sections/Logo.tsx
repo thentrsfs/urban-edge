@@ -17,7 +17,7 @@ const Logo = () => {
 			scrollTrigger: {
 				trigger: el,
 				start: 'top top',
-				scrub: 1,
+				scrub: 1.5,
 				pin: true,
 				pinSpacing: true,
 			},

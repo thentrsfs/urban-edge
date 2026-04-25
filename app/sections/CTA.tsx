@@ -5,6 +5,8 @@ import { ScrollTrigger } from 'gsap/all';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 
+import { MoveDown } from 'lucide-react';
+
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 const CTA = () => {
 	const sectionRef = useRef<HTMLDivElement>(null);
@@ -20,10 +22,16 @@ const CTA = () => {
 				scrollTrigger: {
 					trigger: el,
 					start: 'top top',
-					end: '+=100%',
+					end: '+=150%',
 					scrub: 1,
 					pin: true,
 				},
+			});
+
+			tl.to('.enter-hint', {
+				opacity: 0,
+				duration: 0.6,
+				ease: 'power3.out',
 			});
 
 			tl.fromTo(
@@ -65,6 +73,11 @@ const CTA = () => {
 				},
 			});
 
+			tl.to('.enter-hint', {
+				opacity: 0,
+				duration: 0.6,
+				ease: 'power3.out',
+			});
 			tl.fromTo(
 				'.cta-text',
 				{ opacity: 0, filter: 'blur(20px)', y: 20 },
@@ -96,7 +109,10 @@ const CTA = () => {
 	return (
 		<section
 			ref={sectionRef}
-			className='h-dvh flex flex-col items-center justify-center lg:mb-20 mb-[260vh] px-6 text-center'>
+			className='h-dvh flex flex-col items-center justify-center lg:mb-80 mb-[260vh] px-6 text-center relative z-15'>
+			<div className='absolute top-10 left-1/2 -translate-x-1/2 text-lg font-heading tracking-widest text-muted items-center flex flex-col enter-hint'>
+				<span>ENTER THE CORE</span> <MoveDown size={20} />
+			</div>
 			<div className='flex flex-col items-center justify-center cta-text'>
 				<h2 className='lg:text-8xl text-6xl font-bold font-heading tracking-wide mb-6'>
 					READY TO ENTER?
