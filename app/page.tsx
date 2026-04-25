@@ -153,12 +153,18 @@ export default function Home() {
 
 	// Scroll to top on refresh
 	useEffect(() => {
-		const timeout = setTimeout(() => {
-			window.scrollTo({ top: 0, behavior: 'instant' });
-			ScrollTrigger.refresh();
-		}, 50);
+		window.history.scrollRestoration = 'manual';
 
-		return () => clearTimeout(timeout);
+		const handleLoad = () => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+			ScrollTrigger.refresh();
+		};
+
+		window.addEventListener('load', handleLoad);
+
+		return () => {
+			window.removeEventListener('load', handleLoad);
+		};
 	}, []);
 
 	return (

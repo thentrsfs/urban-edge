@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const CTA = () => {
 	const sectionRef = useRef<HTMLDivElement>(null);
 
- const isMobile = useIsMobile();
+	const isMobile = useIsMobile();
 
 	useGSAP(() => {
 		const el = sectionRef.current;
@@ -24,7 +24,7 @@ const CTA = () => {
 				end: isMobile ? '+=1000%' : '+=100%',
 				scrub: isMobile ? true : 1,
 				pin: true,
-    fastScrollEnd: true
+				fastScrollEnd: true,
 			},
 		});
 		tl.fromTo(
