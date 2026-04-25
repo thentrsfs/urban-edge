@@ -149,25 +149,6 @@ export default function Home() {
 		};
 	}, [splashScreen, isNavOpen]);
 
-	// Scroll to top on refresh
-	useEffect(() => {
-		window.history.scrollRestoration = 'manual';
-
-		const resetScroll = () => {
-			window.scrollTo(0, 0);
-			ScrollTrigger.refresh();
-		};
-
-		window.addEventListener('load', resetScroll);
-
-		const timeout = setTimeout(resetScroll, 300);
-
-		return () => {
-			window.removeEventListener('load', resetScroll);
-			clearTimeout(timeout);
-		};
-	}, []);
-
 	return (
 		<div className='relative'>
 			{splashScreen && <SplashScreen />}

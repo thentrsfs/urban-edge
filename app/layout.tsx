@@ -5,6 +5,9 @@ import './globals.css';
 import Nav from './components/Nav';
 import NavMobile from './components/NavMobile';
 import Footer from './sections/Footer';
+import ScrollFix from './components/ScrollFix';
+import ScrollToTop from './components/ScrollToTop';
+
 import { UIProvider } from './context/UIProvider';
 
 const playfair = Bebas_Neue({
@@ -35,6 +38,8 @@ export default function RootLayout({
 			suppressHydrationWarning>
 			<body className='min-h-full flex flex-col relative'>
 				<UIProvider>
+					<ScrollFix />
+					<ScrollToTop />
 					<Nav />
 					<NavMobile />
 					<main>{children}</main>
