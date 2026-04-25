@@ -14,6 +14,7 @@ import Brand from './sections/Brand';
 import Logo from './sections/Logo';
 
 import useIsMobile from './hooks/useIsMobile';
+import { useUI } from './context/UIProvider';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -26,6 +27,7 @@ export default function Home() {
 	const [isReady, setIsReady] = useState(false);
 
 	const isMobile = useIsMobile();
+	const { isNavOpen } = useUI();
 
 	// Scroll animation
 	useGSAP(() => {
@@ -123,7 +125,7 @@ export default function Home() {
 
 	// Prevent scroll while splash screen is active
 	useEffect(() => {
-		if (!splashScreen) return;
+		if (!splashScreen && !isNavOpen) return;
 
 		const preventScroll = (e: Event) => {
 			e.preventDefault();
@@ -145,7 +147,7 @@ export default function Home() {
 			window.removeEventListener('touchmove', preventScroll);
 			window.removeEventListener('keydown', preventKeys);
 		};
-	}, [splashScreen]);
+	}, [splashScreen, isNavOpen]);
 
 	// Scroll to top on refresh
 	useEffect(() => {
