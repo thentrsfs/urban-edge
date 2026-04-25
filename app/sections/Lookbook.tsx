@@ -69,7 +69,7 @@ const Lookbook = () => {
 			scrollTrigger: {
 				trigger: section,
 				start: 'top top',
-				end: '+=1000',
+				end: '+=1200',
 				scrub: 1,
 			},
 		});
