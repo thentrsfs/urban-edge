@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { Group } from 'three';
 
-import useIsMobile from '../hooks/useIsMobile';
+import useIsMobile from '@/app/hooks/useIsMobile';
 
 gsap.registerPlugin(useGSAP);
 
