@@ -1,11 +1,10 @@
+'use client';
+
 import { X } from 'lucide-react';
-const NavMobile = ({
-	isNavOpen,
-	setIsNavOpen,
-}: {
-	isNavOpen: boolean;
-	setIsNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+
+import { useUI } from '../context/UIProvider';
+const NavMobile = () => {
+	const { isNavOpen, setIsNavOpen } = useUI();
 	return (
 		<nav
 			className={`fixed inset-0 bg-bg text-white flex flex-col justify-center items-center transition-all duration-300 ${isNavOpen ? 'opacity-100 z-99' : 'opacity-0'}`}>

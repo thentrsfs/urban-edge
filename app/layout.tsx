@@ -36,6 +36,7 @@ export default function RootLayout({
 			<body className='min-h-full flex flex-col relative'>
 				<UIProvider>
 					<Nav />
+					<NavMobile />
 					<main>{children}</main>
 					<Footer />
 				</UIProvider>
