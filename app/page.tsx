@@ -26,7 +26,7 @@ export default function Home() {
 	const [isReady, setIsReady] = useState(false);
 
 	const isMobile = useIsMobile();
-	const { isNavOpen, splashScreen, setSplashScreen } = useUI();
+	const { splashScreen } = useUI();
 
 	// Scroll animation
 	useGSAP(() => {
@@ -84,69 +84,6 @@ export default function Home() {
 			0.4,
 		);
 	}, [isReady, splashScreen]);
-
-	// Splash Screen
-	useGSAP(() => {
-		if (!splashScreen) return;
-
-		const tl = gsap.timeline();
-
-		tl.to('.splash-logo', {
-			opacity: 1,
-			y: 0,
-			duration: 0.8,
-			ease: 'power3.out',
-			delay: 0.2,
-		});
-
-		tl.to(
-			'.splash-logo',
-			{
-				opacity: 0,
-				y: -40,
-				duration: 0.6,
-				ease: 'power3.in',
-				onComplete: () => setSplashScreen(false),
-			},
-			'+=0.4',
-		);
-
-		tl.to(
-			'.splash',
-			{
-				opacity: 0,
-				duration: 1,
-				ease: 'power4.inOut',
-			},
-			'-=0.4',
-		);
-	}, [splashScreen]);
-
-	// Prevent scroll while splash screen is active
-	useEffect(() => {
-		if (!splashScreen && !isNavOpen) return;
-
-		const preventScroll = (e: Event) => {
-			e.preventDefault();
-		};
-
-		const preventKeys = (e: KeyboardEvent) => {
-			const keys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Space'];
-			if (keys.includes(e.code)) {
-				e.preventDefault();
-			}
-		};
-
-		window.addEventListener('wheel', preventScroll, { passive: false });
-		window.addEventListener('touchmove', preventScroll, { passive: false });
-		window.addEventListener('keydown', preventKeys);
-
-		return () => {
-			window.removeEventListener('wheel', preventScroll);
-			window.removeEventListener('touchmove', preventScroll);
-			window.removeEventListener('keydown', preventKeys);
-		};
-	}, [splashScreen, isNavOpen]);
 
 	return (
 		<div className='relative'>

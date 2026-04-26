@@ -2,12 +2,101 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-
 import { MoveRight, Plus } from 'lucide-react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+import { useRef } from 'react';
 
 import { products } from '../data/products';
+import { useUI } from '../context/UIProvider';
 
+import SplashScreen from '../components/ui/SplashScreen';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 const Shop = () => {
+	const sectionRef = useRef<HTMLDivElement>(null);
+
+	const { splashScreen } = useUI();
+
+	useGSAP(
+		() => {
+			const el = sectionRef.current;
+			if (!el) return;
+
+			const tl = gsap.timeline({});
+
+			tl.to('.shop-title', {
+				opacity: 1,
+				y: 0,
+				duration: 1.2,
+				ease: 'power3.out',
+				delay: 0.2,
+			});
+
+			tl.to(
+				'.shop-divider',
+				{
+					width: '100%',
+					duration: 1.2,
+					ease: 'power3.out',
+				},
+				'-=0.6',
+			);
+
+			tl.to(
+				'.featured-piece',
+				{
+					opacity: 1,
+					y: 0,
+					duration: 1.2,
+					ease: 'power3.out',
+				},
+				'-=1',
+			);
+		},
+		{ scope: sectionRef },
+	);
+
+	useGSAP(
+		() => {
+			const categories = gsap.utils.toArray(
+				'.category-section',
+			) as HTMLDivElement[];
+
+			categories.forEach((section) => {
+				const title = section.querySelector('.category-title');
+				const cards = section.querySelectorAll('.product-card');
+
+				const tl = gsap.timeline({
+					scrollTrigger: {
+						trigger: section,
+						start: 'top 70%',
+					},
+				});
+
+				tl.to(title, {
+					opacity: 1,
+					y: 0,
+					duration: 0.6,
+					ease: 'power3.out',
+				});
+
+				tl.to(
+					cards,
+					{
+						opacity: 1,
+						y: 0,
+						stagger: 0.1,
+						duration: 0.6,
+						ease: 'power3.out',
+					},
+					'-=0.3',
+				);
+			});
+		},
+		{ scope: sectionRef },
+	);
 	const groupedProducts = products.reduce(
 		(acc, product) => {
 			if (!acc[product.category]) {
@@ -21,17 +110,21 @@ const Shop = () => {
 	);
 
 	return (
-		<div className='relative lg:px-30 px-6'>
-			<div className='lg:pt-35 lg:pb-8 text-white flex flex-col gap-2 w-full border-b border-muted/50 '>
-				<h1 className='lg:text-7xl text-[40px] font-bold font-heading tracking-wide'>
+		<div
+			ref={sectionRef}
+			className='relative lg:px-30 px-6 lg:py-35 py-25 pb-80'>
+			{splashScreen && <SplashScreen />}
+			<div className='pb-6 text-white flex flex-col gap-2 shop-title w-full opacity-0 translate-y-10'>
+				<h1 className='lg:text-7xl text-[40px] font-bold font-heading tracking-wide '>
 					SHOP
 				</h1>
 				<p className='text-sm tracking-widest text-muted'>
 					— 12 PIECES / 3 COLLECTIONS
 				</p>
+				<div className='w-0 h-px bg-muted/50 mt-6 shop-divider' />
 			</div>
-			<div className='grid grid-cols-1 lg:grid-cols-2 items-center text-white pt-8'>
-				<div className='flex flex-col max-w-md gap-4'>
+			<div className='grid grid-cols-1 lg:grid-cols-2 items-center max-sm:gap-6 text-white pt-6 opacity-0 translate-y-10 featured-piece'>
+				<div className='flex flex-col max-w-md gap-4 max-sm:order-1'>
 					<span className='text-muted/80 text-xs tracking-[0.3em] uppercase'>
 						Featured Piece
 					</span>
@@ -67,6 +160,7 @@ const Shop = () => {
 						src={products[0].image}
 						alt={products[0].name}
 						fill
+						sizes='(max-width: 768px) 90vw, 45vw'
 						className='object-cover group-hover:scale-100 scale-105 transition-all duration-600 group-hover:blur-xs '
 						priority={true}
 					/>
@@ -77,25 +171,28 @@ const Shop = () => {
 			{Object.entries(groupedProducts).map(([category, items]) => (
 				<section
 					key={category}
-					className='lg:mt-20'>
-					<h2 className='font-bold lg:text-6xl tracking-wide text-4xl leading-16 font-heading mb-6 text-white'>
+					className='lg:mt-25 mt-15 category-section'>
+					<h2 className='font-bold lg:text-6xl tracking-wide text-4xl leading-16 font-heading mb-6 text-white category-title opacity-0 translate-y-20'>
 						{category}
 					</h2>
 
-					<div className='grid grid-cols-2 lg:grid-cols-4 gap-6'>
+					<div className='grid grid-cols-1 lg:grid-cols-4 gap-6'>
 						{items.map((product) => (
 							<div
 								key={product.id}
-								className='relative group overflow-hidden'>
+								className='relative group overflow-hidden product-card opacity-0 translate-y-20'>
 								<div className='relative h-100 lg:h-150 w-full'>
 									<Image
 										src={product.image}
 										alt={product.name}
 										fill
+										sizes='(max-width: 768px) 90vw, 15vw'
 										className='object-cover'
+										loading='eager'
 									/>
 								</div>
 								<div className='absolute inset-0 bg-linear-to-t from-bg via-bg/20 to-transparent opacity-80' />
+								<div className='absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-300' />
 								<div className='absolute flex flex-col gap-2 bottom-0 left-0 p-6 translate-y-20 group-hover:translate-y-0 transition-all duration-300'>
 									<h3 className='text-2xl text-white font-heading'>
 										{product.name}
