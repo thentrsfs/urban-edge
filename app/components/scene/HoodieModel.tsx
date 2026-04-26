@@ -12,9 +12,11 @@ gsap.registerPlugin(useGSAP);
 const HoodieModel = ({
 	modelRef,
 	onModelReady,
+	showHoodie,
 }: {
 	modelRef: React.RefObject<Group | null>;
 	onModelReady: () => void;
+	showHoodie: boolean;
 }) => {
 	const isMobile = useIsMobile();
 	const groupRef = useRef<Group>(null);
@@ -53,6 +55,7 @@ const HoodieModel = ({
 				groupRef.current = node;
 				if (modelRef && node) modelRef.current = node;
 			}}
+			visible={showHoodie}
 			position={isMobile ? [0, -4.6, 0] : [3.5, -4, 0]}
 			scale={isMobile ? 6 : 8}>
 			<primitive

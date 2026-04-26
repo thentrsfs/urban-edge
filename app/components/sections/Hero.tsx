@@ -13,9 +13,10 @@ type HeroProps = {
 	hoodieRef: React.RefObject<Group | null>;
 	heroRef: React.RefObject<HTMLDivElement | null>;
 	onModelReady: () => void;
+	showHoodie: boolean;
 };
 
-const Hero = ({ heroRef, hoodieRef, onModelReady }: HeroProps) => {
+const Hero = ({ heroRef, hoodieRef, onModelReady, showHoodie }: HeroProps) => {
 	useGSAP(() => {
 		const el = heroRef.current;
 		if (!el) return;
@@ -58,8 +59,9 @@ const Hero = ({ heroRef, hoodieRef, onModelReady }: HeroProps) => {
 			<HeroScene
 				hoodieRef={hoodieRef}
 				onModelReady={onModelReady}
+				showHoodie={showHoodie}
 			/>
-			<div className='absolute lg:top-1/2 lg:left-30 max-sm:bottom-20 lg:-translate-y-1/2 z-10 product-info'>
+			<div className='absolute lg:top-1/2 lg:left-30 max-sm:bottom-20 lg:-translate-y-1/2 z-10 product-info opacity-0'>
 				<h4
 					className='font-bold mb-2 text-4xl lg:text-7xl
 font-heading

@@ -7,9 +7,11 @@ import { Group } from 'three';
 const HeroScene = ({
 	hoodieRef,
 	onModelReady,
+	showHoodie,
 }: {
 	hoodieRef: React.RefObject<Group | null>;
 	onModelReady: () => void;
+	showHoodie: boolean;
 }) => {
 	return (
 		<Canvas
@@ -24,6 +26,7 @@ const HeroScene = ({
 			<HoodieModel
 				modelRef={hoodieRef}
 				onModelReady={onModelReady}
+				showHoodie={showHoodie}
 			/>
 		</Canvas>
 	);

@@ -24,6 +24,7 @@ export default function Home() {
 	const featuredRef = useRef<HTMLDivElement | null>(null);
 
 	const [isReady, setIsReady] = useState(false);
+	const [showHoodie, setShowHoodie] = useState(false);
 
 	const isMobile = useIsMobile();
 	const { splashScreen } = useUI();
@@ -73,7 +74,7 @@ export default function Home() {
 			},
 			0.1,
 		);
-		tl.from(
+		tl.fromTo(
 			'.product-info',
 			{
 				opacity: 0,
@@ -81,9 +82,39 @@ export default function Home() {
 				ease: 'power3.out',
 				duration: 1,
 			},
-			0.4,
+			{
+				opacity: 1,
+				y: 0,
+				ease: 'power3.out',
+				duration: 1,
+			},
 		);
 	}, [isReady, splashScreen]);
+
+	// Delay hoodie animation
+	useEffect(() => {
+		if (!isReady || splashScreen) return;
+
+		const t = setTimeout(() => {
+			setShowHoodie(true);
+			ScrollTrigger.refresh();
+		}, 50);
+
+		return () => clearTimeout(t);
+	}, [isReady, splashScreen]);
+
+	// Hoodie animation on load
+	useEffect(() => {
+		if (!showHoodie || !hoodieRef.current) return;
+
+		gsap.from(hoodieRef.current.scale, {
+			x: 0,
+			y: 0,
+			z: 0,
+			duration: 0.6,
+			ease: 'power3.out',
+		});
+	}, [showHoodie]);
 
 	return (
 		<div className='relative'>
@@ -94,6 +125,7 @@ export default function Home() {
 					heroRef={heroRef}
 					hoodieRef={hoodieRef}
 					onModelReady={() => setIsReady(true)}
+					showHoodie={showHoodie}
 				/>
 				<LatestDrops featuredRef={featuredRef} />
 				<Brand />
