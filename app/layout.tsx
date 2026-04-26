@@ -37,6 +37,18 @@ export default function RootLayout({
 			className={`${playfair.variable} ${inter.variable} h-full antialiased font-body`}
 			suppressHydrationWarning>
 			<body className='min-h-full flex flex-col relative'>
+				<video
+					autoPlay
+					muted
+					loop
+					playsInline
+					className='fixed inset-0 w-full h-full blur-sm scale-110 object-cover -z-10'>
+					<source
+						src='/videos/video-6.mp4'
+						type='video/mp4'
+					/>
+				</video>
+				<div className='fixed inset-0 bg-bg/60 -z-10' />
 				<UIProvider>
 					<ScrollFix />
 					<ScrollToTop />

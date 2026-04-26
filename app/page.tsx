@@ -23,11 +23,10 @@ export default function Home() {
 	const heroRef = useRef<HTMLDivElement | null>(null);
 	const featuredRef = useRef<HTMLDivElement | null>(null);
 
-	const [splashScreen, setSplashScreen] = useState(true);
 	const [isReady, setIsReady] = useState(false);
 
 	const isMobile = useIsMobile();
-	const { isNavOpen } = useUI();
+	const { isNavOpen, splashScreen, setSplashScreen } = useUI();
 
 	// Scroll animation
 	useGSAP(() => {
@@ -152,18 +151,6 @@ export default function Home() {
 	return (
 		<div className='relative'>
 			{splashScreen && <SplashScreen />}
-			<video
-				autoPlay
-				muted
-				loop
-				playsInline
-				className='fixed inset-0 w-full h-full blur-sm scale-110 object-cover -z-10'>
-				<source
-					src='/videos/video-6.mp4'
-					type='video/mp4'
-				/>
-			</video>
-			<div className='fixed inset-0 bg-bg/60 -z-10' />
 			<div
 				className={`${splashScreen ? 'opacity-0' : 'opacity-100'} transition-opacity duration-700 flex flex-col text-text-primary relative`}>
 				<Hero
