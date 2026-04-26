@@ -4,21 +4,21 @@ export const latestProducts = [
         name: "REVIVAL CORE",
         description: 'CORE OF THE NIGHT' ,
         image: "/images/latest-drops/hoodie-2.jpg",
-        price: 100
+        price: 180  
     },
     {
         id: 2,
         name: "NEON SHADOW TEE",
         description: 'Neon state of mind' ,
         image: "/images/latest-drops/shirt.jpg",
-        price: 100
+        price: 150
     },
     {
         id: 3,
         name: "PEACE VOID HOODIE",
         description: 'Chaos in control' ,
         image: "/images/latest-drops/hoodie-1.jpg",
-        price: 100
+        price: 160
     }
 ]
 
@@ -28,7 +28,7 @@ export const products = [
         name: "OBSIDIAN FLOW",
         description: 'Made for the unseen' ,
         image: "/images/clothes/jacket-3.jpg",
-        price: 100,
+        price: 240,
         category: "CORE COLLECTION"
     },
     {
@@ -36,7 +36,7 @@ export const products = [
         name: "NEON PULSE",
         description: 'Alive in the dark' ,
         image: "/images/clothes/t-shirt-1.jpg",
-        price: 100,
+        price: 65,
         category: "CORE COLLECTION"
     },
     {
@@ -44,7 +44,7 @@ export const products = [
         name: "VOID RUNNER",
         description: 'No path, no limits' ,
         image: "/images/clothes/hoodie-2.jpg",
-        price: 100,
+        price: 160,
         category: "CORE COLLECTION"
     },
     {
@@ -52,7 +52,7 @@ export const products = [
         name: "ECHO FORM",
         description: 'Left behind, still heard' ,
         image: "/images/clothes/hoodie-4.jpg",
-        price: 100,
+        price: 180,
         category: "CORE COLLECTION"
     },
     {
@@ -60,7 +60,7 @@ export const products = [
         name: "NIGHT VECTOR",
         description: 'Direction: unknown' ,
         image: "/images/clothes/hoodie-3.jpg",
-        price: 100,
+        price: 145,
         category: "NEON STATE"
     },
     
@@ -69,7 +69,7 @@ export const products = [
         name: "PHANTOM CORE",
         description: 'You won’t see it coming' ,
         image: "/images/clothes/jacket-2.jpg",
-        price: 100,
+        price: 280,
         category: "NEON STATE"
     },
     {
@@ -77,7 +77,7 @@ export const products = [
         name: "STATIC DRIFT",
         description: 'Lost in motion' ,
         image: "/images/clothes/pants-1.jpg",
-        price: 100,
+        price: 90,
         category: "NEON STATE"
     },
     {
@@ -85,7 +85,7 @@ export const products = [
         name: "DUSK SIGNAL",
         description: 'The shift begins' ,
         image: "/images/clothes/jacket-1.jpg",
-        price: 100,
+        price: 170,
         category: "NEON STATE"
     },
     {
@@ -93,7 +93,7 @@ export const products = [
         name: "BLACKOUT MODE",
         description: 'All lights off' ,
         image: "/images/clothes/hoodie-5.jpg",
-        price: 100,
+        price: 140,
         category: "VOID SERIES"
     },
     {
@@ -101,7 +101,7 @@ export const products = [
         name: "NEON FRAGMENT",
         description: 'Pieces of the future' ,
         image: "/images/clothes/hoodie-1.jpg",
-        price: 100,
+        price: 150,
         category: "VOID SERIES"
     },
     {
@@ -109,7 +109,7 @@ export const products = [
         name: "SHADOW CURRENT",
         description: 'Moves beneath the surface' ,
         image: "/images/clothes/t-shirt-2.jpg",
-        price: 100,
+        price: 50,
         category: "VOID SERIES"
     },
     {
@@ -117,7 +117,7 @@ export const products = [
         name: "VOID ECHO",
         description: 'Sound without source' ,
         image: "/images/clothes/t-shirt-3.jpg",
-        price: 100,
+        price: 45,
         category: "VOID SERIES"
     },
 

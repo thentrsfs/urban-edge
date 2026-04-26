@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { MoveRight, Plus } from 'lucide-react';
+
 import { products } from '../data/products';
 
 const Shop = () => {
@@ -33,7 +35,7 @@ const Shop = () => {
 					<span className='text-muted/80 text-xs tracking-[0.3em] uppercase'>
 						Featured Piece
 					</span>
-					<h2 className='font-bold lg:text-6xl tracking-wide text-4xl leading-16'>
+					<h2 className='font-bold lg:text-8xl tracking-wide text-4xl font-heading'>
 						{products[0].name}
 					</h2>
 					<p className='lg:text-lg text-base text-muted/90 mb-4'>
@@ -73,12 +75,18 @@ const Shop = () => {
 			</div>
 
 			{Object.entries(groupedProducts).map(([category, items]) => (
-				<section key={category}>
-					<h2>{category}</h2>
+				<section
+					key={category}
+					className='lg:mt-20'>
+					<h2 className='font-bold lg:text-6xl tracking-wide text-4xl leading-16 font-heading mb-6 text-white'>
+						{category}
+					</h2>
 
-					<div className='grid grid-cols-2 lg:grid-cols-3 gap-6'>
+					<div className='grid grid-cols-2 lg:grid-cols-4 gap-6'>
 						{items.map((product) => (
-							<div key={product.id}>
+							<div
+								key={product.id}
+								className='relative group overflow-hidden'>
 								<div className='relative h-100 lg:h-150 w-full'>
 									<Image
 										src={product.image}
@@ -87,9 +95,28 @@ const Shop = () => {
 										className='object-cover'
 									/>
 								</div>
-								<h3>{product.name}</h3>
-								<p>{product.description}</p>
-								<p>${product.price}</p>
+								<div className='absolute inset-0 bg-linear-to-t from-bg via-bg/20 to-transparent opacity-80' />
+								<div className='absolute flex flex-col gap-2 bottom-0 left-0 p-6 translate-y-20 group-hover:translate-y-0 transition-all duration-300'>
+									<h3 className='text-2xl text-white font-heading'>
+										{product.name}
+									</h3>
+									<div className='opacity-0 group-hover:opacity-100 transition-all duration-300'>
+										<p className='text-white/70 text-sm'>
+											{product.description}
+										</p>
+										<p className='text-white text-sm mt-1'>${product.price}</p>
+
+										<button
+											type='button'
+											className='flex items-center gap-2 relative tracking-widest text-white cursor-pointer mt-4 hover:tracking-[0.2em] transition-all duration-300'>
+											<MoveRight size={16} />
+											<span>VIEW</span>
+										</button>
+									</div>
+								</div>
+								<button className='absolute right-6 bottom-6 text-white translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110'>
+									<Plus />
+								</button>
 							</div>
 						))}
 					</div>
