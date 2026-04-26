@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { latestProducts } from '../../data/products';
 
@@ -89,9 +90,11 @@ const LatestDrops = ({
 						<div className='relative lg:h-160 h-100 overflow-hidden group-hover:rotate-2 transition-all duration-300'>
 							<div className='absolute inset-0 bg-black/15 z-10' />
 							<div className='absolute inset-0 bg-black/40 z-10 group-hover:opacity-100 opacity-0 transition-all duration-300 flex justify-center items-center'>
-								<button className='border border-white px-7 py-3 w-fit text-sm tracking-widest lg:mt-6 mt-4 text-white hover:bg-white hover:text-bg font-medium transition cursor-pointer -rotate-2'>
-									SHOP NOW
-								</button>
+								<Link href={`/shop/${product.id}`}>
+									<button className='border border-white px-7 py-3 w-fit text-sm tracking-widest lg:mt-6 mt-4 text-white hover:bg-white hover:text-bg font-medium transition cursor-pointer -rotate-2'>
+										SHOP NOW
+									</button>
+								</Link>
 							</div>
 							<div className='relative lg:w-full lg:h-full w-75 h-100'>
 								<Image

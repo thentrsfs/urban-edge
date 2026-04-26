@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
+import Link from 'next/link';
 
 import { MoveDown } from 'lucide-react';
 
@@ -117,10 +118,14 @@ const CTA = () => {
 				<h2 className='lg:text-8xl text-6xl font-bold font-heading tracking-wide mb-6'>
 					READY TO ENTER?
 				</h2>
-				<button className='group cta-btn relative px-8 py-3 tracking-[0.2em] text-white cursor-pointer'>
-					SHOP COLLECTION
-					<span className='absolute left-0 bottom-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full' />
-				</button>
+				<Link href='/shop'>
+					<button
+						type='button'
+						className='group cta-btn relative px-8 py-3 tracking-[0.2em] text-white cursor-pointer'>
+						SHOP COLLECTION
+						<span className='absolute left-0 bottom-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full' />
+					</button>
+				</Link>
 				<p className='text-xs text-muted/80 tracking-widest mt-4'>
 					LIMITED DROP • 2026
 				</p>

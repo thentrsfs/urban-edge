@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 import { useUI } from '../../context/UIProvider';
 
 const Nav = () => {
@@ -15,19 +17,19 @@ const Nav = () => {
 			</button>
 			<ul className='lg:flex lg:gap-15 tracking-widest text-sm items-center hidden uppercase text-white/80'>
 				<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
-					<a href='#'>Shop</a>{' '}
+					<Link href='/shop'>Shop</Link>{' '}
 					<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full' />
 				</li>
 				<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
-					<a href='#latest-drops'>Latest Drops</a>{' '}
+					<Link href='#latest-drops'>Latest Drops</Link>{' '}
 					<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full' />
 				</li>
 				<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
-					<a href='#lookbook'>Lookbook</a>{' '}
+					<Link href='#lookbook'>Lookbook</Link>{' '}
 					<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full' />
 				</li>
 				<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
-					<a href=''>Cart</a>{' '}
+					<Link href='/cart'>Cart</Link>{' '}
 					<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0' />
 				</li>
 			</ul>
