@@ -9,6 +9,7 @@ import ScrollFix from './components/system/ScrollFix';
 import ScrollToTop from './components/system/ScrollToTop';
 
 import { UIProvider } from './context/UIProvider';
+import { CartProvider } from './context/CartContext';
 
 const playfair = Bebas_Neue({
 	variable: '--font-heading',
@@ -50,12 +51,14 @@ export default function RootLayout({
 				</video>
 				<div className='fixed inset-0 bg-bg/60 -z-10' />
 				<UIProvider>
-					<ScrollFix />
-					<ScrollToTop />
-					<Nav />
-					<NavMobile />
-					<main>{children}</main>
-					<Footer />
+					<CartProvider>
+						<ScrollFix />
+						<ScrollToTop />
+						<Nav />
+						<NavMobile />
+						<main>{children}</main>
+						<Footer />
+					</CartProvider>
 				</UIProvider>
 			</body>
 		</html>

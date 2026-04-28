@@ -10,6 +10,7 @@ import { useRef } from 'react';
 
 import { products } from '../data/products';
 import { useUI } from '../context/UIProvider';
+import { useCart } from '../context/CartContext';
 
 import SplashScreen from '../components/ui/SplashScreen';
 
@@ -18,6 +19,7 @@ const Shop = () => {
 	const sectionRef = useRef<HTMLDivElement>(null);
 
 	const { splashScreen } = useUI();
+	const { addToCart } = useCart();
 
 	useGSAP(
 		() => {
@@ -211,7 +213,17 @@ const Shop = () => {
 										</button>
 									</div>
 								</div>
-								<button className='absolute right-6 bottom-6 text-white lg:translate-y-full group-hover:translate-y-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110'>
+								<button
+									onClick={() => {
+										addToCart({
+											id: product.id,
+											name: product.name,
+											price: product.price,
+											image: product.image,
+											quantity: 1,
+										});
+									}}
+									className='absolute right-6 bottom-6 text-white lg:translate-y-full group-hover:translate-y-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110'>
 									<Plus />
 								</button>
 							</div>
