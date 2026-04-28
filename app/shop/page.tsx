@@ -191,13 +191,13 @@ const Shop = () => {
 										loading='eager'
 									/>
 								</div>
-								<div className='absolute inset-0 bg-linear-to-t from-bg via-bg/20 to-transparent opacity-80' />
-								<div className='absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-300' />
-								<div className='absolute flex flex-col gap-2 bottom-0 left-0 p-6 translate-y-20 group-hover:translate-y-0 transition-all duration-300'>
+								<div className='absolute inset-0 bg-linear-to-t from-bg via-bg/40 lg:via-bg/20 to-transparent opacity-80' />
+								<div className='absolute inset-0 bg-black/30 opacity-0 lg:group-hover:opacity-100 transition-all duration-300' />
+								<div className='absolute flex flex-col gap-2 bottom-0 left-0 p-6 lg:translate-y-20 group-hover:translate-y-0 transition-all duration-300 max-w-[55%]'>
 									<h3 className='text-2xl text-white font-heading'>
 										{product.name}
 									</h3>
-									<div className='opacity-0 group-hover:opacity-100 transition-all duration-300'>
+									<div className='lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300'>
 										<p className='text-white/70 text-sm'>
 											{product.description}
 										</p>
@@ -211,7 +211,7 @@ const Shop = () => {
 										</button>
 									</div>
 								</div>
-								<button className='absolute right-6 bottom-6 text-white translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110'>
+								<button className='absolute right-6 bottom-6 text-white lg:translate-y-full group-hover:translate-y-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110'>
 									<Plus />
 								</button>
 							</div>
