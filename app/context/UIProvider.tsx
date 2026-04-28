@@ -1,12 +1,15 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 interface UIContextType {
 	isNavOpen: boolean;
 	setIsNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
 	splashScreen: boolean;
 	setSplashScreen: React.Dispatch<React.SetStateAction<boolean>>;
+	menuPath?: string;
+	openMenu?: () => void;
 }
 
 const UIContext = createContext<UIContextType>({
@@ -14,11 +17,21 @@ const UIContext = createContext<UIContextType>({
 	setIsNavOpen: () => {},
 	splashScreen: true,
 	setSplashScreen: () => {},
+	openMenu: () => {},
+	menuPath: '',
 });
 
 export const UIProvider = ({ children }: { children: React.ReactNode }) => {
+	const pathname = usePathname();
+
 	const [isNavOpen, setIsNavOpen] = useState(false);
 	const [splashScreen, setSplashScreen] = useState(true);
+	const [menuPath, setMenuPath] = useState(pathname);
+
+	const openMenu = () => {
+		setMenuPath(pathname); // 👈 capture route HERE
+		setIsNavOpen(true);
+	};
 
 	// Prevent scroll while splash screen is active
 	useEffect(() => {
@@ -48,7 +61,14 @@ export const UIProvider = ({ children }: { children: React.ReactNode }) => {
 
 	return (
 		<UIContext.Provider
-			value={{ isNavOpen, setIsNavOpen, splashScreen, setSplashScreen }}>
+			value={{
+				isNavOpen,
+				setIsNavOpen,
+				splashScreen,
+				setSplashScreen,
+				menuPath,
+				openMenu,
+			}}>
 			{children}
 		</UIContext.Provider>
 	);

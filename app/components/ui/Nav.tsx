@@ -7,7 +7,7 @@ import { useUI } from '../../context/UIProvider';
 
 const Nav = () => {
 	const pathname = usePathname();
-	const { setIsNavOpen } = useUI();
+	const { openMenu } = useUI();
 
 	return (
 		<nav className='absolute top-0 w-full flex justify-between items-center lg:px-30 p-6 lg:py-8 z-11 text-white'>
@@ -17,7 +17,7 @@ const Nav = () => {
 				</h1>
 			</Link>
 			<button
-				onClick={() => setIsNavOpen(true)}
+				onClick={openMenu}
 				className='lg:hidden text-lg font-medium'>
 				Menu
 			</button>
