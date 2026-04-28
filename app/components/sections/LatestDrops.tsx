@@ -88,6 +88,13 @@ const LatestDrops = ({
 						key={product.id}
 						className='flex flex-col gap-6 featured-card opacity-0 translate-y-30 group snap-center'>
 						<div className='relative lg:h-160 h-100 overflow-hidden group-hover:rotate-2 transition-all duration-300'>
+							<div className='absolute lg:hidden bottom-4 left-1/2 -translate-x-1/2 z-50'>
+								<Link href={`/shop/${product.id}`}>
+									<button className='border border-white px-7 py-3 w-fit text-sm tracking-widest lg:mt-6 mt-4 text-white backdrop-blur-xl font-medium transition cursor-pointer z-50'>
+										SHOP NOW
+									</button>
+								</Link>
+							</div>
 							<div className='absolute inset-0 bg-black/15 z-10' />
 							<div className='absolute inset-0 bg-black/40 z-10 group-hover:opacity-100 opacity-0 transition-all duration-300 flex justify-center items-center'>
 								<Link href={`/shop/${product.id}`}>
