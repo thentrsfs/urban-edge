@@ -112,7 +112,7 @@ const Shop = () => {
 	return (
 		<div
 			ref={sectionRef}
-			className='relative lg:px-30 px-6 lg:py-35 py-25 pb-80'>
+			className='relative lg:px-30 px-6 lg:py-35 py-25 lg:pb-60 pb-80'>
 			{splashScreen && <SplashScreen />}
 			<div className='pb-6 text-white flex flex-col gap-2 shop-title w-full opacity-0 translate-y-10'>
 				<h1 className='lg:text-7xl text-[40px] font-bold font-heading tracking-wide '>

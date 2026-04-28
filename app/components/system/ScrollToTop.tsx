@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export default function ScrollToTop() {
 	const pathname = usePathname();
 	useEffect(() => {
-		window.scrollTo({ top: 0, behavior: 'instant' });
+		window.scrollTo({ top: 0, behavior: 'auto' });
 
 		setTimeout(() => {
 			ScrollTrigger.refresh();
