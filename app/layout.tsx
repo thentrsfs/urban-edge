@@ -35,7 +35,8 @@ export default function RootLayout({
 		<html
 			lang='en'
 			className={`${playfair.variable} ${inter.variable} h-full antialiased font-body`}
-			suppressHydrationWarning>
+			suppressHydrationWarning
+			data-scroll-behavior='smooth'>
 			<body className='min-h-full flex flex-col relative'>
 				<video
 					autoPlay

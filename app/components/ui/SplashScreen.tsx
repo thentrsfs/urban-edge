@@ -39,7 +39,7 @@ const SplashScreen = () => {
 			);
 
 			tl.to(
-				'.splash',
+				ref.current,
 				{
 					opacity: 0,
 					duration: 1,
@@ -53,7 +53,7 @@ const SplashScreen = () => {
 	return (
 		<div
 			ref={ref}
-			className='splash fixed inset-0 bg-bg flex items-center justify-center z-50'>
+			className='fixed inset-0 bg-bg flex items-center justify-center z-50'>
 			<h1 className='splash-logo opacity-0 translate-y-10 text-white lg:text-7xl text-5xl font-heading'>
 				URBANEDGE
 			</h1>
