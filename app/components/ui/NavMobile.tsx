@@ -3,9 +3,12 @@
 import { X } from 'lucide-react';
 import Link from 'next/link';
 
-import { useUI } from '../../context/UIProvider';
+import { useUI } from '@/app/store/ui';
+
 const NavMobile = () => {
-	const { isNavOpen, setIsNavOpen, menuPath } = useUI();
+	const isNavOpen = useUI((state) => state.isNavOpen);
+	const setIsNavOpen = useUI((state) => state.setIsNavOpen);
+	const menuPath = useUI((state) => state.menuPath);
 
 	const closeMenu = () => {
 		setTimeout(() => setIsNavOpen(false), 300);

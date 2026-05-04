@@ -1,4 +1,5 @@
 'use client';
+
 import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
@@ -14,7 +15,7 @@ import Brand from './components/sections/Brand';
 import Logo from './components/sections/Logo';
 
 import useIsMobile from './hooks/useIsMobile';
-import { useUI } from './context/UIProvider';
+import { useUI } from './store/ui';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -27,7 +28,7 @@ export default function Home() {
 	const [showHoodie, setShowHoodie] = useState(false);
 
 	const isMobile = useIsMobile();
-	const { splashScreen } = useUI();
+	const splashScreen = useUI((state) => state.splashScreen);
 
 	// Scroll animation
 	useGSAP(() => {

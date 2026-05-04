@@ -2,13 +2,7 @@ import type { Metadata } from 'next';
 import { Bebas_Neue, Inter } from 'next/font/google';
 import './globals.css';
 
-import Nav from './components/ui/Nav';
-import NavMobile from './components/ui/NavMobile';
-import Footer from './components/sections/Footer';
-import ScrollFix from './components/system/ScrollFix';
-import ScrollToTop from './components/system/ScrollToTop';
-
-import { UIProvider } from './context/UIProvider';
+import ClientShell from '@/app/components/system/ClientShell';
 
 const playfair = Bebas_Neue({
 	variable: '--font-heading',
@@ -50,14 +44,7 @@ export default function RootLayout({
 					/>
 				</video>
 				<div className='fixed inset-0 bg-bg/60 -z-10' />
-				<UIProvider>
-					<ScrollFix />
-					<ScrollToTop />
-					<Nav />
-					<NavMobile />
-					<main>{children}</main>
-					<Footer />
-				</UIProvider>
+				<ClientShell>{children}</ClientShell>
 			</body>
 		</html>
 	);

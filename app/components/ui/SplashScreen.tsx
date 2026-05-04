@@ -4,12 +4,14 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
-import { useUI } from '@/app/context/UIProvider';
+import { useUI } from '@/app/store/ui';
 
 gsap.registerPlugin(useGSAP);
 const SplashScreen = () => {
 	const ref = useRef<HTMLDivElement>(null);
-	const { splashScreen, setSplashScreen } = useUI();
+
+	const splashScreen = useUI((state) => state.splashScreen);
+	const setSplashScreen = useUI((state) => state.setSplashScreen);
 
 	// Splash Screen
 	useGSAP(

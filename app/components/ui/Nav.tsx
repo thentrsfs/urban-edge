@@ -3,11 +3,11 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { useUI } from '../../context/UIProvider';
+import { useUI } from '@/app/store/ui';
 
 const Nav = () => {
 	const pathname = usePathname();
-	const { openMenu } = useUI();
+	const openMenu = useUI((state) => state.openMenu);
 
 	const handleScrollToSection = ({
 		e,
@@ -31,7 +31,7 @@ const Nav = () => {
 				</h1>
 			</Link>
 			<button
-				onClick={openMenu}
+				onClick={() => openMenu(pathname)}
 				className='lg:hidden text-lg font-medium'>
 				Menu
 			</button>

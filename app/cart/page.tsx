@@ -5,7 +5,9 @@ import Image from 'next/image';
 import { useCart } from '../store/cart';
 
 const CartPage = () => {
-	const { cart, removeFromCart, updateQuantity } = useCart();
+	const cart = useCart((state) => state.cart);
+	const updateQuantity = useCart((state) => state.updateQuantity);
+	const removeFromCart = useCart((state) => state.removeFromCart);
 
 	const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 

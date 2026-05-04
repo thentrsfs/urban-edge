@@ -9,7 +9,8 @@ import { ScrollTrigger } from 'gsap/all';
 import { useRef } from 'react';
 
 import { products } from '../data/products';
-import { useUI } from '../context/UIProvider';
+
+import { useUI } from '../store/ui';
 import { useCart } from '../store/cart';
 
 import SplashScreen from '../components/ui/SplashScreen';
@@ -18,8 +19,8 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const Shop = () => {
 	const sectionRef = useRef<HTMLDivElement>(null);
 
-	const { splashScreen } = useUI();
-	const { addToCart } = useCart();
+	const splashScreen = useUI((state) => state.splashScreen);
+	const addToCart = useCart((state) => state.addToCart);
 
 	useGSAP(
 		() => {
