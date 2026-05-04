@@ -10,7 +10,7 @@ import { useRef } from 'react';
 
 import { products } from '../data/products';
 import { useUI } from '../context/UIProvider';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../store/cart';
 
 import SplashScreen from '../components/ui/SplashScreen';
 
@@ -165,6 +165,7 @@ const Shop = () => {
 						sizes='(max-width: 768px) 90vw, 45vw'
 						className='object-cover group-hover:scale-100 scale-105 transition-all duration-600 group-hover:blur-xs '
 						priority={true}
+						loading='eager'
 					/>
 					<div className='absolute top-0 left-0 w-full h-full bg-black/10' />
 				</div>
