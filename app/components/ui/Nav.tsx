@@ -24,7 +24,7 @@ const Nav = () => {
 	};
 
 	return (
-		<nav className='absolute top-0 w-full flex justify-between items-center lg:px-30 p-6 lg:py-8 z-11 text-white'>
+		<nav className='absolute top-0 w-full flex justify-between items-center lg:px-30 p-6 lg:py-8 z-12 text-white'>
 			<Link href='/'>
 				<h1 className='lg:text-5xl text-3xl font-bold font-heading'>
 					UrbanEdge
@@ -36,12 +36,18 @@ const Nav = () => {
 				Menu
 			</button>
 			<ul className='lg:flex lg:gap-15 tracking-widest text-sm items-center hidden uppercase text-white/80'>
-				{pathname !== '/' ? (
-					<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
-						<Link href='/'>Home</Link>{' '}
-						<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full' />
-					</li>
-				) : (
+				{pathname === '/cart' ? (
+					<div className='flex lg:gap-15'>
+						<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
+							<Link href='/'>Home</Link>{' '}
+							<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full' />
+						</li>
+						<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
+							<Link href='/shop'>Shop</Link>{' '}
+							<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full' />
+						</li>
+					</div>
+				) : pathname === '/' ? (
 					<div className='flex lg:gap-15'>
 						<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
 							<Link href='/shop'>Shop</Link>{' '}
@@ -66,12 +72,18 @@ const Nav = () => {
 							<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full' />
 						</li>
 					</div>
+				) : (
+					<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
+						<Link href='/'>Home</Link>{' '}
+						<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full' />
+					</li>
 				)}
-
-				<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
-					<Link href='/cart'>Cart</Link>{' '}
-					<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0' />
-				</li>
+				{pathname !== '/cart' && (
+					<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
+						<Link href='/cart'>Cart</Link>{' '}
+						<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0' />
+					</li>
+				)}
 			</ul>
 		</nav>
 	);
