@@ -7,11 +7,15 @@ import { ScrollTrigger } from 'gsap/all';
 import { useRef } from 'react';
 
 import { useCart } from '../store/cart';
+import { useUI } from '../store/ui';
+
+import SplashScreen from '../components/ui/SplashScreen';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 const CartPage = () => {
 	const ref = useRef<HTMLDivElement>(null);
 	const cart = useCart((state) => state.cart);
+	const splashScreen = useUI((state) => state.splashScreen);
 	const updateQuantity = useCart((state) => state.updateQuantity);
 	const removeFromCart = useCart((state) => state.removeFromCart);
 
@@ -81,6 +85,7 @@ const CartPage = () => {
 		<div
 			ref={ref}
 			className='lg:px-30 px-6 lg:py-35 py-25 text-white relative'>
+			{splashScreen && <SplashScreen />}
 			<h2 className='lg:text-7xl text-[40px] font-bold font-heading tracking-wide featured-title cart-title opacity-0 translate-y-10'>
 				Your Cart
 			</h2>
