@@ -14,6 +14,7 @@ import { useUI } from '../store/ui';
 import { useCart } from '../store/cart';
 
 import SplashScreen from '../components/ui/SplashScreen';
+import LinkButton from '../components/ui/LinkButton';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 const Shop = () => {
@@ -153,11 +154,11 @@ const Shop = () => {
 				</div>
 				<div className='relative h-100 lg:h-150 w-full group overflow-hidden cursor-pointer hover:rotate-2 transition-all duration-600'>
 					<div className='absolute inset-0 bg-black/40 z-10 group-hover:opacity-100 opacity-0 transition-all duration-300 flex justify-center items-center'>
-						<Link href={`/shop`}>
-							<button className='border border-white px-7 py-3 w-fit text-sm tracking-widest lg:mt-6 mt-4 text-white hover:bg-white hover:text-bg font-medium transition cursor-pointer -rotate-2'>
-								SHOP NOW
-							</button>
-						</Link>
+						<LinkButton
+							className='-rotate-2'
+							href={`/shop/${products[0].id}`}>
+							VIEW NOW
+						</LinkButton>
 					</div>
 					<Image
 						src={products[0].image}

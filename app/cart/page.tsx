@@ -24,6 +24,20 @@ const CartPage = () => {
 		0,
 	);
 
+	const handleCheckout = async () => {
+		const res = await fetch('/api/checkout', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ cart }),
+		});
+
+		const data = await res.json();
+
+		window.location.href = data.url;
+	};
+
 	useGSAP(() => {
 		const el = ref.current;
 		if (!el) return;
@@ -43,16 +57,6 @@ const CartPage = () => {
 		});
 
 		tl.to(
-			'.cart-divider',
-			{
-				width: '100%',
-				duration: 1.2,
-				ease: 'power3.out',
-			},
-			'-=0.6',
-		);
-
-		tl.to(
 			'.cart-preview',
 			{
 				opacity: 1,
@@ -61,26 +65,6 @@ const CartPage = () => {
 				ease: 'power3.out',
 			},
 			'-=1',
-		);
-
-		tl.to(
-			'.cart-divider-2',
-			{
-				width: '100%',
-				duration: 1.2,
-				ease: 'power3.out',
-			},
-			'-=0.6',
-		);
-		tl.to(
-			'.total-section',
-			{
-				opacity: 1,
-				y: 0,
-				duration: 1.2,
-				ease: 'power3.out',
-			},
-			'-=0.6',
 		);
 	});
 
@@ -176,7 +160,9 @@ const CartPage = () => {
 										${subtotal.toFixed(2)}
 									</span>
 								</p>
-								<button className='bg-white cursor-pointer text-bg text-lg font-medium py-2 px-4 lg:px-16 lg:py-2 rounded hover:bg-white/90 transition uppercase tracking-widest '>
+								<button
+									onClick={handleCheckout}
+									className='bg-white cursor-pointer text-bg text-lg font-medium py-2 px-4 lg:px-16 lg:py-2 rounded hover:bg-white/90 transition uppercase tracking-widest '>
 									Checkout
 								</button>
 							</div>

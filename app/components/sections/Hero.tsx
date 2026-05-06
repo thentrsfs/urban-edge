@@ -3,9 +3,8 @@ import { Group } from 'three';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
-import Link from 'next/link';
-
 import HeroScene from '../scene/HeroScene';
+import LinkButton from '../ui/LinkButton';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -50,11 +49,7 @@ const Hero = ({ heroRef, hoodieRef, onModelReady, showHoodie }: HeroProps) => {
 					New Collection 2026
 				</h1>
 				<p className='lg:text-2xl text-muted'>Minimal. Timeless. UrbanEdge.</p>
-				<Link href='/shop'>
-					<button className='border border-white px-7 py-3 w-fit text-sm tracking-widest lg:mt-6 mt-2 text-white hover:bg-white hover:text-bg font-medium transition cursor-pointer'>
-						SHOP NOW
-					</button>
-				</Link>
+				<LinkButton href='/shop'>SHOP NOW</LinkButton>
 			</div>
 			<HeroScene
 				hoodieRef={hoodieRef}
