@@ -175,7 +175,7 @@ const CartPage = () => {
 										${subtotal.toFixed(2)}
 									</span>
 								</p>
-								<button className='bg-white cursor-pointer text-bg text-lg font-medium py-2 px-4 lg:px-16 lg:py-2 rounded hover:bg-white/80 transition uppercase tracking-widest '>
+								<button className='bg-white cursor-pointer text-bg text-lg font-medium py-2 px-4 lg:px-16 lg:py-2 rounded hover:bg-white/90 transition uppercase tracking-widest '>
 									Checkout
 								</button>
 							</div>
