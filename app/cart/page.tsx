@@ -87,7 +87,7 @@ const CartPage = () => {
 	return (
 		<div
 			ref={ref}
-			className='lg:px-30 px-6 lg:py-35 py-25 text-white relative'>
+			className='lg:px-30 px-6 lg:py-35 pt-25 pb-60 text-white relative'>
 			{splashScreen && <SplashScreen />}
 			<div className='lg:max-w-6xl mx-auto'>
 				<h2 className='lg:text-7xl text-[40px] font-bold font-heading tracking-wide featured-title cart-title opacity-0 translate-y-10'>
@@ -114,6 +114,7 @@ const CartPage = () => {
 												fill
 												className='object-cover rounded'
 												sizes='(max-width: 768px) 80vw, 8vw'
+												loading='eager'
 											/>
 										</div>
 										<div className='flex flex-col gap-2.5 items-center '>
@@ -153,7 +154,7 @@ const CartPage = () => {
 								))}
 							</div>
 
-							<div className='border border-white/15 p-6 rounded-sm flex flex-col gap-6 ml-auto self-end'>
+							<div className='border border-white/15 p-6 rounded-sm flex flex-col gap-6 lg:ml-auto self-end'>
 								<h2 className='text-2xl font-bold tracking-wide'>
 									Order Summary
 								</h2>
