@@ -209,12 +209,12 @@ const Shop = () => {
 										</p>
 										<p className='text-white text-sm mt-1'>${product.price}</p>
 
-										<button
-											type='button'
+										<Link
+											href={`/shop/${product.slug}`}
 											className='flex items-center gap-2 relative tracking-widest text-white cursor-pointer mt-4 hover:tracking-[0.2em] transition-all duration-300'>
 											<MoveRight size={16} />
 											<span>VIEW</span>
-										</button>
+										</Link>
 									</div>
 								</div>
 								<button
