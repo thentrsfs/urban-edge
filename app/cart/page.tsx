@@ -24,6 +24,10 @@ const CartPage = () => {
 		0,
 	);
 
+	const shipping = 80;
+
+	const total = subtotal + shipping;
+
 	const handleCheckout = async () => {
 		const res = await fetch('/api/checkout', {
 			method: 'POST',
@@ -86,12 +90,12 @@ const CartPage = () => {
 						</div>
 					) : (
 						<div className='grid lg:grid-cols-2 lg:py-8 py-6 opacity-0 translate-y-10 cart-preview '>
-							<div className='flex flex-col gap-4  divide-y divide-muted/50'>
+							<div className='flex flex-col gap-4 divide-y divide-muted/50'>
 								{cart.map((item) => (
 									<div
 										key={item.id}
 										className='flex lg:gap-6 max-sm:justify-between items-center pb-5'>
-										<div className='w-46 h-46 lg:w-40 lg:h-40 relative'>
+										<div className='w-40 h-40 relative'>
 											<Image
 												src={item.image}
 												alt={item.name}
@@ -125,8 +129,8 @@ const CartPage = () => {
 													+
 												</button>
 											</div>
-											<p className='text-lg font-semibold'>
-												${item.price.toFixed(2)}
+											<p className='lg:text-lg font-semibold'>
+												{item.price} CZK
 											</p>
 											<button
 												onClick={() => removeFromCart(item.id)}
@@ -146,19 +150,19 @@ const CartPage = () => {
 								<p className='tracking-wider'>
 									Subtotal:{' '}
 									<span className='font-semibold tracking-wide'>
-										${subtotal.toFixed(2)}
+										{subtotal} CZK
 									</span>
 								</p>
 								<p className='tracking-wider'>
 									Shipping:{' '}
-									<span className='font-semibold tracking-wide'>$14.99</span>
+									<span className='font-semibold tracking-wide'>
+										{shipping} CZK
+									</span>
 								</p>
 								<div className='w-full h-px bg-muted/50' />
 								<p className='text-2xl font-semibold tracking-wider'>
 									Total:{' '}
-									<span className='font-bold tracking-wide'>
-										${subtotal.toFixed(2)}
-									</span>
+									<span className='font-bold tracking-wide'>{total} CZK</span>
 								</p>
 								<button
 									onClick={handleCheckout}

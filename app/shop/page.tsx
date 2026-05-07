@@ -7,6 +7,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
 import { useRef } from 'react';
+import { toast } from 'sonner';
 
 import { products } from '../data/products';
 
@@ -225,6 +226,7 @@ const Shop = () => {
 											image: product.image,
 											quantity: 1,
 										});
+										toast.success(`${product.name} added to cart!`);
 									}}
 									className='absolute right-6 bottom-6 text-white lg:translate-y-full group-hover:translate-y-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110'>
 									<Plus />

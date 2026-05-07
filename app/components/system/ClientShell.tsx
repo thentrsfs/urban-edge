@@ -2,6 +2,7 @@
 
 import ScrollLockProvider from '@/app/components/system/ScrollLockProvider';
 
+import { Toaster } from 'sonner';
 import ScrollFix from '@/app/components/system/ScrollFix';
 import ScrollToTop from '@/app/components/system/ScrollToTop';
 import Nav from '@/app/components/ui/Nav';
@@ -21,6 +22,7 @@ export default function ClientShell({
 			<NavMobile />
 			<main>{children}</main>
 			<Footer />
+			<Toaster />
 		</ScrollLockProvider>
 	);
 }
