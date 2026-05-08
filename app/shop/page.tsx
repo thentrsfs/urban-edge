@@ -147,7 +147,7 @@ const Shop = () => {
 					</p>
 					<Link
 						className='group'
-						href={`/shop/${products[0].id}`}>
+						href={`/shop/${products[0].slug}`}>
 						<button className='border border-white px-7 py-3 w-fit text-sm tracking-[0.2em] mt-2 text-white hover:bg-white hover:text-bg font-medium transition cursor-pointer'>
 							VIEW PRODUCT
 						</button>
@@ -157,7 +157,7 @@ const Shop = () => {
 					<div className='absolute inset-0 bg-black/40 z-10 group-hover:opacity-100 opacity-0 transition-all duration-300 flex justify-center items-center'>
 						<LinkButton
 							className='-rotate-2'
-							href={`/shop/${products[0].id}`}>
+							href={`/shop/${products[0].slug}`}>
 							VIEW NOW
 						</LinkButton>
 					</div>
