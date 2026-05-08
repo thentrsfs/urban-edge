@@ -1,4 +1,4 @@
-import { products } from '@/app/data/products';
+import { products, latestProducts } from '@/app/data/products';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
@@ -8,7 +8,8 @@ const ProductPage = async ({
 	params: Promise<{ slug: string }>;
 }) => {
 	const { slug } = await params;
-	const product = products.find((p) => p.slug === slug);
+	const allProducts = [...products, ...latestProducts];
+	const product = allProducts.find((p) => p.slug === slug);
 
 	if (!product) {
 		notFound();
