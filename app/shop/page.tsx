@@ -140,7 +140,7 @@ const Shop = () => {
 						{products[0].description}
 					</p>
 					<p className='text-lg text-white/90 font-medium tracking-wide mb-4'>
-						${products[0].price}
+						{products[0].price} CZK
 					</p>
 					<p className='text-xs tracking-widest text-muted'>
 						LIMITED DROP · 2026
@@ -208,7 +208,9 @@ const Shop = () => {
 										<p className='text-white/70 text-sm'>
 											{product.description}
 										</p>
-										<p className='text-white text-sm mt-1'>${product.price}</p>
+										<p className='text-white text-sm mt-1'>
+											{product.price} CZK
+										</p>
 
 										<Link
 											href={`/shop/${product.slug}`}
