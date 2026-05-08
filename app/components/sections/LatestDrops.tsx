@@ -80,16 +80,16 @@ const LatestDrops = ({
 			ref={featuredRef}
 			id='latest-drops'
 			className='lg:min-h-dvh lg:px-30 lg:py-10 px-6 lg:mt-[150vh] mt-[160vh]  mb-15 overflow-x-auto snap-x snap-mandatory no-scrollbar z-11'>
-			<h1 className='lg:text-7xl text-[40px] font-bold font-heading tracking-wide opacity-0 translate-y-20 featured-title max-sm:absolute'>
+			<h1 className='lg:text-7xl text-[40px] font-bold font-heading tracking-wide opacity-0 translate-y-20 featured-title max-lg:absolute'>
 				Latest Drops
 			</h1>
-			<div className='lg:grid lg:grid-cols-3 lg:gap-8 gap-4 flex max-sm:w-max lg:mt-10 mt-30'>
+			<div className='lg:grid lg:grid-cols-3 lg:gap-8 gap-4 flex max-lg:w-max lg:mt-10 mt-30'>
 				{latestProducts.map((product) => (
 					<div
 						key={product.id}
 						className='flex flex-col gap-6 featured-card opacity-0 translate-y-30 group snap-center'>
 						<div className='relative lg:h-160 h-100 overflow-hidden group-hover:rotate-2 transition-all duration-300'>
-							<div className='absolute lg:hidden bottom-4 left-1/2 -translate-x-1/2 z-50'>
+							<div className='absolute lg:hidden bottom-10 left-1/2 -translate-x-1/2 z-50'>
 								<Link
 									href={`/shop/${product.slug}`}
 									className='border border-white px-7 py-3 w-fit text-sm tracking-widest lg:mt-6 mt-4 text-white backdrop-blur-xl font-medium transition cursor-pointer z-50'>
