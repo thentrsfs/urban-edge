@@ -2,8 +2,9 @@ import { products, latestProducts } from '@/app/data/products';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { MoveRight } from 'lucide-react';
-
 import Link from 'next/link';
+
+import AddToCartBtn from '@/app/components/ui/AddToCartBtn';
 
 const ProductPage = async ({
 	params,
@@ -22,19 +23,20 @@ const ProductPage = async ({
 	}
 
 	return (
-		<div className='min-h-screen flex flex-col items-center justify-center font-bold text-white lg:p-30 p-6'>
-			<section className='grid grid-cols-1 lg:grid-cols-2 gap-10 items-center lg:w-7xl'>
-				<div className='lg:w-full lg:h-[75vh] relative overflow-hidden'>
+		<div className='min-h-screen flex flex-col items-center justify-center font-bold text-white lg:p-30 px-6 py-30'>
+			<section className='grid grid-cols-1 lg:grid-cols-2 gap-10 items-center lg:w-7xl w-full'>
+				<div className='lg:w-full lg:h-[75vh] h-[50vh] relative overflow-hidden'>
 					<Image
 						src={product.image}
 						alt={product.name}
 						fill
 						sizes='(max-width: 768px) 90vw, 50vw'
 						className='object-cover hover:scale-105 transition-all duration-500'
+						loading='eager'
 					/>
 				</div>
 				<div>
-					<h1 className='text-7xl uppercase font-heading tracking-wide'>
+					<h1 className='lg:text-7xl text-5xl uppercase font-heading tracking-wide'>
 						{product.name}
 					</h1>
 					<p className='mt-4 text-muted/80 tracking-wider uppercase'>
@@ -42,12 +44,10 @@ const ProductPage = async ({
 					</p>
 					<p className='mt-10 text-white/90 text-lg'>{product.price} Kč</p>
 
-					<button className='border border-white px-7 py-3 w-fit text-sm tracking-widest uppercase backdrop-blur-lg lg:mt-10 mt-2 text-white hover:bg-white hover:text-bg font-medium transition cursor-pointer'>
-						Add to cart
-					</button>
+					<AddToCartBtn product={product} />
 				</div>
 			</section>
-			<section className='mt-40 border-t border-muted/50 pt-16 w-full'>
+			<section className='my-40 border-t border-muted/50 pt-16 w-full'>
 				<h2 className='text-3xl uppercase font-heading tracking-wide mb-10 text-center'>
 					You may also like
 				</h2>
@@ -64,8 +64,9 @@ const ProductPage = async ({
 									sizes='(max-width: 768px) 90vw, 33vw'
 									className='object-cover group-hover:scale-105 transition-all duration-500'
 								/>
+								<div className='lg:hidden absolute inset-0 bg-linear-to-t from-black/60 to transparent  ' />
 								<div className='absolute inset-0 bg-transparent group-hover:bg-black/30 group-hover:backdrop-blur-[2px] transition-all duration-500'>
-									<p className='text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 text-white uppercase tracking-widest font-semibold'>
+									<p className='text-center absolute left-1/2 lg:top-1/2 max-sm:bottom-10 -translate-x-1/2 lg:-translate-y-1/2 lg:opacity-0 group-hover:opacity-100 transition-all duration-500 text-white uppercase tracking-widest font-semibold'>
 										View Product <MoveRight className='inline-block' />
 									</p>
 								</div>
