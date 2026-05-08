@@ -147,7 +147,8 @@ const Shop = () => {
 					</p>
 					<Link
 						className='group'
-						href={`/shop/${products[0].slug}`}>
+						href={`/shop/${products[0].slug}`}
+						scroll>
 						<button className='border border-white px-7 py-3 w-fit text-sm tracking-[0.2em] mt-2 text-white hover:bg-white hover:text-bg font-medium transition cursor-pointer'>
 							VIEW PRODUCT
 						</button>

@@ -17,7 +17,8 @@ export default function ClientShell({
 	return (
 		<ScrollLockProvider>
 			<ScrollFix />
-			<ScrollToTop />
+			{/* 
+			<ScrollToTop /> */}
 			<Nav />
 			<NavMobile />
 			<main>{children}</main>
