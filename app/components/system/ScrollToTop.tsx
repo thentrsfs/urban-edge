@@ -1,18 +1,13 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function ScrollToTop() {
-	const pathname = usePathname();
 	useEffect(() => {
-		window.scrollTo({ top: 0, behavior: 'auto' });
+		window.history.scrollRestoration = 'manual';
 
-		setTimeout(() => {
-			ScrollTrigger.refresh();
-		}, 50);
-	}, [pathname]);
+		window.scrollTo(0, 0);
+	}, []);
 
 	return null;
 }
