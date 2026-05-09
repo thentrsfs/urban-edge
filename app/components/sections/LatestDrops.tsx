@@ -80,7 +80,7 @@ const LatestDrops = ({
 			ref={featuredRef}
 			id='latest-drops'
 			className='lg:min-h-dvh lg:px-30 lg:py-10 px-6 lg:mt-[150vh] mt-[160vh]  mb-15 overflow-x-auto snap-x snap-mandatory no-scrollbar z-11'>
-			<h1 className='lg:text-7xl text-[40px] font-bold font-heading tracking-wide opacity-0 translate-y-20 featured-title max-lg:absolute'>
+			<h1 className='lg:text-7xl md:text-6xl text-[40px] font-bold font-heading tracking-wide opacity-0 translate-y-20 featured-title max-lg:absolute'>
 				Latest Drops
 			</h1>
 			<div className='lg:grid lg:grid-cols-3 lg:gap-8 gap-4 flex max-lg:w-max lg:mt-10 mt-30'>

@@ -80,7 +80,7 @@ const Lookbook = () => {
 			ref={scrollSection}
 			id='lookbook'
 			className='h-screen relative overflow-hidden'>
-			<h2 className='lg:text-7xl text-[40px] font-bold font-heading tracking-wide featured-title absolute lg:left-30 lg:top-6 left-6 top-4 lookbook-title opacity-0 translate-y-10'>
+			<h2 className='lg:text-7xl md:text-6xl md:top-10 text-[40px] font-bold font-heading tracking-wide featured-title absolute lg:left-30 lg:top-6 left-6 top-4 lookbook-title opacity-0 translate-y-10'>
 				Lookbook
 			</h2>
 			<div
