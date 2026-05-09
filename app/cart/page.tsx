@@ -142,8 +142,8 @@ const CartPage = () => {
 								))}
 							</div>
 
-							<div className='border border-white/15 p-6 rounded-sm flex flex-col gap-6 lg:ml-auto self-end'>
-								<h2 className='text-2xl font-bold tracking-wide'>
+							<div className='border border-white/15 p-6 rounded-sm flex flex-col lg:gap-6 gap-4 lg:ml-auto self-end'>
+								<h2 className='lg:text-2xl text-lg font-bold tracking-wide'>
 									Order Summary
 								</h2>
 								<div className='w-full h-px bg-muted/50' />
@@ -160,7 +160,7 @@ const CartPage = () => {
 									</span>
 								</p>
 								<div className='w-full h-px bg-muted/50' />
-								<p className='text-2xl font-semibold tracking-wider'>
+								<p className='lg:text-2xl font-semibold tracking-wider'>
 									Total:{' '}
 									<span className='font-bold tracking-wide'>{total} CZK</span>
 								</p>
