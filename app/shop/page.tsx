@@ -208,7 +208,7 @@ const Shop = () => {
 										<p className='text-white/70 text-sm'>
 											{product.description}
 										</p>
-										<p className='text-white text-sm mt-1'>
+										<p className='text-white font-medium text-sm mt-1'>
 											{product.price} CZK
 										</p>
 
