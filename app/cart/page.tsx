@@ -84,7 +84,7 @@ const CartPage = () => {
 				<div className='bg-white/5 px-6 rounded-sm backdrop-blur-xl mt-6 border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.4)]'>
 					{cart.length === 0 ? (
 						<div className='flex flex-col gap-4 items-center justify-center lg:py-50 py-25 opacity-0 translate-y-10 cart-preview'>
-							<h2 className='lg:text-4xl text-[40px] font-semibold '>
+							<h2 className='lg:text-4xl text-2xl font-semibold '>
 								Your cart is empty
 							</h2>
 						</div>
