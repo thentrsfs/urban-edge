@@ -115,9 +115,11 @@ const CTA = () => {
 				<span>ENTER THE CORE</span> <MoveDown size={20} />
 			</div>
 			<div className='flex flex-col items-center justify-center cta-text'>
-				<h2 className='lg:text-8xl text-6xl font-bold font-heading tracking-wide mb-6'>
-					READY TO ENTER?
-				</h2>
+				<Link href='/shop'>
+					<button className='lg:text-8xl text-6xl font-bold font-heading tracking-wide mb-6 cursor-pointer'>
+						READY TO ENTER?
+					</button>
+				</Link>
 				<Link href='/shop'>
 					<button
 						type='button'
