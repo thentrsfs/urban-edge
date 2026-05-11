@@ -9,13 +9,14 @@ export type CartItem  = {
     price: number;
     image: string;
     quantity: number;
+    size: string;
 }
 
 interface CartState {
     cart: CartItem[];
     addToCart: (item: CartItem) => void;
-    removeFromCart: (id: number) => void;
-    updateQuantity: (id: number, quantity: number) => void;
+    removeFromCart: (id: number, size: string) => void;
+    updateQuantity: (id: number, size: string, quantity: number) => void;
     clearCart: () => void;
 }
 
@@ -26,26 +27,26 @@ export const useCart = create<CartState>()(
 
             addToCart: (item) => {
                 const cart = get().cart;
-                const existing = cart.find((p) => p.id === item.id);
+                const existing = cart.find((p) => p.id === item.id && p.size === item.size);
 
                 if(existing) {
                     set({
-                        cart: cart.map((p) => p.id === item.id ? {...p, quantity: p.quantity + 1} : p)
+                        cart: cart.map((p) => p.id === item.id && p.size === item.size ? {...p, quantity: p.quantity + 1} : p)
                     })
                 } else {
                     set({ cart: [...cart, {...item, quantity: 1}]})
                 }
             },
 
-            removeFromCart: (id) => {
+            removeFromCart: (id, size) => {
                 set({
-                    cart: get().cart.filter((item) => item.id !== id)
+                    cart: get().cart.filter((item) => !(item.id === id && item.size === size) )
                 })
             },
 
-            updateQuantity: (id, quantity) => {
+            updateQuantity: (id,size, quantity) => {
                 set({
-                    cart: get().cart.map((item) => item.id === id ? {...item, quantity} : item)
+                    cart: get().cart.map((item) => item.id === id && item.size === size ? {...item, quantity} : item)
                 })
             },
 

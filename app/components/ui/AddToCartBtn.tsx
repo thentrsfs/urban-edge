@@ -2,32 +2,46 @@
 
 import { useCart } from '@/app/store/cart';
 import { toast } from 'sonner';
+import { useState } from 'react';
+import SizeSelector from './SizeSelector';
 
-type Props = {
-	product: {
-		id: number;
-		name: string;
-		price: number;
-		image: string;
-	};
+type Product = {
+	id: number;
+	name: string;
+	slug: string;
+	description: string;
+	image: string;
+	price: number;
 };
 
-const AddToCartBtn = ({ product }: Props) => {
+const AddToCartBtn = ({ product }: { product: Product }) => {
 	const { addToCart } = useCart((state) => state);
+	const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
 	const handleAddToCart = () => {
+		if (!selectedSize) {
+			toast.error('Please select a size.');
+			return;
+		}
 		addToCart({
 			...product,
+			size: selectedSize,
 			quantity: 1,
 		});
 		toast.success(`${product.name} added to cart!`);
 	};
 	return (
-		<button
-			onClick={handleAddToCart}
-			className='border border-white px-7 py-3 w-fit text-sm tracking-widest uppercase backdrop-blur-lg lg:mt-10 mt-2 text-white hover:bg-white hover:text-bg font-medium transition cursor-pointer'>
-			Add to cart
-		</button>
+		<div className='flex flex-col gap-6 lg:mt-10 mt-2 relative'>
+			<SizeSelector
+				selectedSize={selectedSize}
+				onSelect={setSelectedSize}
+			/>
+			<button
+				onClick={handleAddToCart}
+				className='border border-white px-7 py-3 w-fit text-sm tracking-widest uppercase backdrop-blur-lg  text-white hover:bg-white hover:text-bg font-medium transition cursor-pointer'>
+				Add to cart
+			</button>
+		</div>
 	);
 };
 

@@ -6,7 +6,7 @@ import { MoveRight, Plus } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { toast } from 'sonner';
 
 import { products } from '../data/products';
@@ -16,13 +16,37 @@ import { useCart } from '../store/cart';
 
 import SplashScreen from '../components/ui/SplashScreen';
 import LinkButton from '../components/ui/LinkButton';
+import SizeSelector from '../components/ui/SizeSelector';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+type Product = (typeof products)[number];
 const Shop = () => {
 	const sectionRef = useRef<HTMLDivElement>(null);
 
+	const [selectedSizes, setSelectedSizes] = useState<Record<number, string>>(
+		{},
+	);
+
 	const splashScreen = useUI((state) => state.splashScreen);
 	const addToCart = useCart((state) => state.addToCart);
+
+	const handleAddToCart = (product: Product) => {
+		const selectedSize = selectedSizes[product.id];
+
+		if (!selectedSize) {
+			toast.error('Please select a size.');
+			return;
+		}
+
+		addToCart({
+			...product,
+			size: selectedSize,
+			quantity: 1,
+		});
+
+		toast.success(`${product.name} added to cart!`);
+	};
 
 	useGSAP(
 		() => {
@@ -208,6 +232,18 @@ const Shop = () => {
 										<p className='text-white/70 text-sm'>
 											{product.description}
 										</p>
+										<div className='my-2'>
+											<SizeSelector
+												selectedSize={selectedSizes[product.id] ?? null}
+												onSelect={(size) =>
+													setSelectedSizes((prev) => ({
+														...prev,
+														[product.id]: size,
+													}))
+												}
+												className='text-xs'
+											/>
+										</div>
 										<p className='text-white font-medium text-sm mt-1'>
 											{product.price} CZK
 										</p>
@@ -221,16 +257,7 @@ const Shop = () => {
 									</div>
 								</div>
 								<button
-									onClick={() => {
-										addToCart({
-											id: product.id,
-											name: product.name,
-											price: product.price,
-											image: product.image,
-											quantity: 1,
-										});
-										toast.success(`${product.name} added to cart!`);
-									}}
+									onClick={() => handleAddToCart(product)}
 									className='absolute right-6 bottom-6 text-white lg:translate-y-full group-hover:translate-y-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110'>
 									<Plus />
 								</button>

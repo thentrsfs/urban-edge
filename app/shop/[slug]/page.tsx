@@ -23,7 +23,7 @@ const ProductPage = async ({
 	}
 
 	return (
-		<div className='min-h-screen flex flex-col items-center justify-center font-bold text-white lg:p-30 px-6 py-30'>
+		<div className='min-h-screen flex flex-col items-center justify-center text-white lg:p-30 px-6 py-30'>
 			<section className='grid grid-cols-1 lg:grid-cols-2 gap-10 items-center lg:w-7xl w-full'>
 				<div className='lg:w-full lg:h-[75vh] h-[50vh] relative overflow-hidden'>
 					<Image
@@ -36,13 +36,15 @@ const ProductPage = async ({
 					/>
 				</div>
 				<div>
-					<h1 className='lg:text-7xl text-5xl uppercase font-heading tracking-wide'>
+					<h1 className='lg:text-7xl text-5xl uppercase font-heading font-bold tracking-wide'>
 						{product.name}
 					</h1>
-					<p className='mt-4 text-muted/80 tracking-wider uppercase'>
+					<p className='mt-4 text-muted/80 tracking-wider uppercase font-semibold'>
 						{product.description}
 					</p>
-					<p className='mt-10 text-white/90 text-lg'>{product.price} Kč</p>
+					<p className='mt-10 text-white/90 text-lg font-medium'>
+						{product.price} Kč
+					</p>
 
 					<AddToCartBtn product={product} />
 				</div>

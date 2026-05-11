@@ -93,7 +93,7 @@ const CartPage = () => {
 							<div className='flex flex-col gap-4 divide-y divide-muted/50'>
 								{cart.map((item) => (
 									<div
-										key={item.id}
+										key={`${item.id}-${item.size}`}
 										className='flex lg:gap-6 max-sm:justify-between items-center pb-5'>
 										<div className='w-40 h-40 relative'>
 											<Image
@@ -112,7 +112,11 @@ const CartPage = () => {
 											<div className='flex items-center gap-2'>
 												<button
 													onClick={() =>
-														updateQuantity(item.id, item.quantity - 1)
+														updateQuantity(
+															item.id,
+															item.size,
+															item.quantity - 1,
+														)
 													}
 													className='border border-white/20 cursor-pointer text-white w-8 h-8 rounded-full hover:border-white transition  disabled:cursor-not-allowed font-semibold '
 													disabled={item.quantity === 1}>
@@ -123,7 +127,11 @@ const CartPage = () => {
 												</span>
 												<button
 													onClick={() =>
-														updateQuantity(item.id, item.quantity + 1)
+														updateQuantity(
+															item.id,
+															item.size,
+															item.quantity + 1,
+														)
 													}
 													className='border border-white/20 cursor-pointer text-white w-8 h-8 rounded-full hover:border-white transition'>
 													+
@@ -132,9 +140,10 @@ const CartPage = () => {
 											<p className='lg:text-lg font-semibold'>
 												{item.price} CZK
 											</p>
+											<p className='text-sm text-muted'>Size: {item.size}</p>
 											<button
-												onClick={() => removeFromCart(item.id)}
-												className='text-muted hover:text-white transition text-xs tracking-widest uppercase cursor-pointer'>
+												onClick={() => removeFromCart(item.id, item.size)}
+												className='text-white/80 hover:text-white transition text-xs tracking-widest uppercase cursor-pointer'>
 												Remove
 											</button>
 										</div>
