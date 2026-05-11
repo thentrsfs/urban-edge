@@ -13,7 +13,7 @@ export async function POST(req: Request) {
             price_data: {
                 currency: 'czk',
                 product_data: {
-                    name: item.name,
+                    name: `${item.name} (${item.size})`,
                 },
                 unit_amount: item.price * 100,
             },
