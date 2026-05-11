@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-	title: 'URBANEDGE',
+	title: 'URBANEDGE - E-Commerce Platform',
 	description: 'The urban edge of the future',
 };
 
