@@ -18,6 +18,9 @@ const inter = Inter({
 export const metadata: Metadata = {
 	title: 'URBANEDGE - E-Commerce Platform',
 	description: 'The urban edge of the future',
+	openGraph: {
+		images: '/images/thumbnail.png',
+	},
 };
 
 export default function RootLayout({
