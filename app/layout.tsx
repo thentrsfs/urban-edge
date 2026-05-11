@@ -19,7 +19,9 @@ export const metadata: Metadata = {
 	title: 'URBANEDGE - E-Commerce Platform',
 	description: 'The urban edge of the future',
 	openGraph: {
-		images: '/images/thumbnail.png',
+		title: 'URBANEDGE - E-Commerce Platform',
+		description: 'The urban edge of the future',
+		images: ['/images/thumbnail.png'],
 	},
 };
 
