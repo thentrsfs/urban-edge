@@ -28,6 +28,9 @@ const AddToCartBtn = ({ product }: { product: Product }) => {
 			size: selectedSize,
 			quantity: 1,
 		});
+
+		setSelectedSize(null);
+
 		toast.success(`${product.name} added to cart!`);
 	};
 	return (

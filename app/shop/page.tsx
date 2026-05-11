@@ -45,6 +45,12 @@ const Shop = () => {
 			quantity: 1,
 		});
 
+		setSelectedSizes((prev) => {
+			const next = { ...prev };
+			delete next[product.id];
+			return next;
+		});
+
 		toast.success(`${product.name} added to cart!`);
 	};
 

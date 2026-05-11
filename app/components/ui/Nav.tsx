@@ -2,12 +2,17 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ShoppingCart } from 'lucide-react';
 
 import { useUI } from '@/app/store/ui';
+import { useCart } from '@/app/store/cart';
 
 const Nav = () => {
 	const pathname = usePathname();
 	const openMenu = useUI((state) => state.openMenu);
+	const cart = useCart((state) => state.cart);
+
+	const totalItems = cart.length;
 
 	const handleScrollToSection = ({
 		e,
@@ -79,9 +84,15 @@ const Nav = () => {
 					</div>
 				)}
 				{pathname !== '/cart' && (
-					<li className='cursor-pointer relative group hover:text-white transition-all duration-300'>
-						<Link href='/cart'>Cart</Link>{' '}
-						<span className='absolute left-0 bottom-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0' />
+					<li className='cursor-pointer relative'>
+						<Link href='/cart'>
+							<ShoppingCart className='w-6 h-6' />
+							{totalItems > 0 && (
+								<span className='absolute -top-2 -right-2 w-5 h-5 rounded-full bg-white text-black text-xs font-bold flex items-center justify-center'>
+									{totalItems}
+								</span>
+							)}
+						</Link>
 					</li>
 				)}
 			</ul>

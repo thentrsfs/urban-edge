@@ -24,7 +24,7 @@ const CartPage = () => {
 		0,
 	);
 
-	const shipping = 80;
+	const shipping = 99;
 
 	const total = subtotal + shipping;
 
