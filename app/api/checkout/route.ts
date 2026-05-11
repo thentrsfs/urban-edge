@@ -20,6 +20,29 @@ export async function POST(req: Request) {
             quantity: item.quantity,
         })),
 
+        shipping_options: [
+            {
+                shipping_rate_data: {
+                    type: 'fixed_amount',
+                    fixed_amount: {
+                        amount: 9900,
+                        currency: 'czk',
+                    },
+                    display_name: 'Standard Shipping',
+                    delivery_estimate: {
+                        minimum: {
+                            unit: 'business_day',
+                            value: 2,
+                        },
+                        maximum: {
+                            unit: 'business_day',
+                            value: 5,
+                        },
+                    },
+                }
+            }
+        ],
+
         success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success`,
         cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/cart`,
     })
