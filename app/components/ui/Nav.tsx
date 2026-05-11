@@ -11,6 +11,8 @@ const Nav = () => {
 	const pathname = usePathname();
 	const openMenu = useUI((state) => state.openMenu);
 	const cart = useCart((state) => state.cart);
+	const isNavVisible = useUI((state) => state.isNavVisible);
+	const isScrolled = useUI((state) => state.isScrolled);
 
 	const totalItems = cart.length;
 
@@ -29,7 +31,12 @@ const Nav = () => {
 	};
 
 	return (
-		<nav className='absolute top-0 w-full flex justify-between items-center lg:px-30 p-6 lg:py-8 z-12 text-white'>
+		<nav
+			className={`fixed top-0 w-full flex justify-between items-center lg:px-30 p-6 lg:py-8 z-12 text-white transition-all duration-300 ${
+				isNavVisible ? 'translate-y-0' : '-translate-y-full'
+			} ${
+				isScrolled ? 'bg-bg/50 backdrop-blur-lg shadow-lg' : 'bg-transparent'
+			}`}>
 			<Link href='/'>
 				<h1 className='lg:text-5xl text-3xl font-bold font-heading'>
 					UrbanEdge

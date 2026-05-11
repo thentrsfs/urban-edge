@@ -8,6 +8,7 @@ import ScrollToTop from '@/app/components/system/ScrollToTop';
 import Nav from '@/app/components/ui/Nav';
 import NavMobile from '@/app/components/ui/NavMobile';
 import Footer from '@/app/components/sections/Footer';
+import NavVisibility from './NavVisibility';
 
 export default function ClientShell({
 	children,
@@ -23,6 +24,7 @@ export default function ClientShell({
 			<main>{children}</main>
 			<Footer />
 			<Toaster />
+			<NavVisibility />
 		</ScrollLockProvider>
 	);
 }
