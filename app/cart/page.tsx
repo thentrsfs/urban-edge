@@ -94,7 +94,7 @@ const CartPage = () => {
 								{cart.map((item) => (
 									<div
 										key={`${item.id}-${item.size}`}
-										className='flex lg:gap-6 max-sm:justify-between items-center pb-5'>
+										className='grid grid-cols-2 max-sm:justify-between items-center pb-5 lg:max-w-sm'>
 										<div className='w-40 h-40 relative'>
 											<Image
 												src={item.image}
@@ -105,7 +105,7 @@ const CartPage = () => {
 												loading='eager'
 											/>
 										</div>
-										<div className='flex flex-col gap-2.5 items-center '>
+										<div className='flex flex-col gap-2.5 items-center'>
 											<h3 className='lg:text-2xl text-xl font-heading tracking-wide'>
 												{item.name}
 											</h3>
