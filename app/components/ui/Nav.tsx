@@ -37,11 +37,13 @@ const Nav = () => {
 			} ${
 				isScrolled ? 'bg-bg/50 backdrop-blur-lg shadow-lg' : 'bg-transparent'
 			}`}>
-			<Link href='/'>
+			<button
+				className='cursor-pointer'
+				onClick={() => window.scrollTo(0, 0)}>
 				<h1 className='lg:text-5xl text-3xl font-bold font-heading'>
 					UrbanEdge
 				</h1>
-			</Link>
+			</button>
 			<button
 				onClick={() => openMenu(pathname)}
 				className='lg:hidden text-lg font-medium'>
